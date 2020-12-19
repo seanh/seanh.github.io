@@ -16,7 +16,7 @@ advanced features.
 Fixtures can use other fixtures
 -------------------------------
 
-We saw in [Simple Fixtures](/posts/fixtures) that if a test wants to use a
+We saw in [Basic pytest Fixtures](2017-02-02-fixtures.md) that if a test wants to use a
 fixture it simply takes that fixture as an argument, by name. Here's a test
 that uses the `pyramid_request` fixture:
 
@@ -41,7 +41,7 @@ is the [Pyramid view class](http://docs.pylonsproject.org/projects/pyramid/en/la
 for the "user search" page, which is the page that lets you search and browse
 all of a user's annotations, for example <https://hypothes.is/users/jeremydean>.
 
-The `factories` fixture (see [this tutorial's post on factories](/posts/factories))
+The `factories` fixture (see [this tutorial's post on factories](2017-01-29-factories.md))
 is often used by other fixtures. For example,
 [the `user` fixture in `TestUserSearchController`](https://github.com/hypothesis/h/blob/7d02ed90a1f3e6e38de30266dc5fcc31abef9f91/tests/h/views/activity_test.py#L755)
 uses it to return a `User` object with a registration date, URI and ORCID:
@@ -110,7 +110,7 @@ class TestUserSearchController(object):
     def user(self, factories):
         ...
 
-    @pytest.fixture
+    @pytest.fixtureÎ
     def pyramid_request(self):
         ...
 ```
@@ -172,7 +172,7 @@ via `usefixtures`) - the test uses the `controller` fixture, which uses the
 Fixtures override other fixtures with the same name
 ---------------------------------------------------
 
-In [Simple Fixtures](/posts/fixtures) we saw that `@pytest.fixture` functions
+In [Basic pytest Fixtures](2017-02-02-fixtures.md) we saw that `@pytest.fixture` functions
 can be defined in `conftest.py` files, in the test modules themselves, or as
 methods on the test classes. A fixture defined in a class overrides any fixtures
 with the same name defined higher up in the module or in a `conftest.py` file.
