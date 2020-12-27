@@ -133,8 +133,8 @@ The [tmux-yank](https://github.com/tmux-plugins/tmux-yank) plugin adds some keyb
 
     Or you can select some text with the keyboard in copy mode and click <kbd>y</kbd>.
   
-    tmux-yank still copies the text into a tmux paste buffer as well, so the text can still be pasted with <kbd><kbd>Ctrl</kbd> + <kbd>]</kbd></kbd> or
-    <kbd><kbd>Ctrl</kbd> + <kbd>=</kbd></kbd> and won't be lost if you copy some more text.
+    tmux-yank still copies the text into a tmux paste buffer as well, so the text can still be pasted with <kbd><kbd>Ctrl</kbd> + <kbd>b</kbd> <kbd>]</kbd></kbd> or
+    <kbd><kbd>Ctrl</kbd> + <kbd>b</kbd> <kbd>=</kbd></kbd> and won't be lost if you copy some more text.
     
   By default tmux-yank will clear the selection and exit copy mode when you click <kbd>y</kbd> or as soon as you lift the mouse button if selecting text with the
   mouse. To stop it from clearing the selection add this to your `~/.tmux.conf`:
