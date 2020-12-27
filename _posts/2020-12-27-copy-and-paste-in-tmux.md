@@ -16,8 +16,8 @@ Note: tmux's copy mode uses emacs-style keybindings by default unless your `EDIT
 You can force it to use vi-style bindings by putting `set-window-option -g mode-keys vi` in your `~/.tmux.conf`. I'm using the vi-style bindings in this guide.
 </div>
 
-In tmux <kbd><kbd>Ctrl</kbd> + <kbd>[</kbd></kbd> enters **copy mode**, where you can move the cursor around and select text. If you have tmux's mouse mode enabled
-(`set -g mouse on`) then scrolling with the scrollwheel also enters copy mode. <kbd><kbd>Ctrl</kbd> + <kbd>Page Up</kbd></kbd> enters copy mode and scrolls up by
+In tmux <kbd><kbd>Ctrl</kbd> + <kbd>b</kbd> <kbd>[</kbd></kbd> enters **copy mode**, where you can move the cursor around and select text. If you have tmux's mouse mode enabled
+(`set -g mouse on`) then scrolling with the scrollwheel also enters copy mode. <kbd><kbd>Ctrl</kbd> + <kbd>b</kbd> <kbd>Page Up</kbd></kbd> enters copy mode and scrolls up by
 one page.
 
 In copy mode:
