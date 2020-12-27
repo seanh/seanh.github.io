@@ -1,9 +1,9 @@
----
-subtitle: How to copy and paste in [tmux](https://github.com/tmux/tmux), including with the system's primary selection and clipboard.
----
-
 Copy & Paste in tmux
 ====================
+
+<p class="lead" markdown="1">
+How to copy and paste in [tmux](https://github.com/tmux/tmux), including with the system's primary selection and clipboard.
+</p>
 
 ## tmux's copy mode
 
