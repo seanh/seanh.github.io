@@ -29,12 +29,12 @@ In copy mode:
 
 Back in default mode:
 
-* <kbd><kbd>Ctrl</kbd> + <kbd>]</kbd></kbd> pastes from tmux's most recently created paste buffer (i.e. pastes the most recently copied text)
-* <kbd><kbd>Ctrl</kbd> + <kbd>=</kbd></kbd> shows you all the paste buffers and lets you choose one to paste from
+* <kbd><kbd>Ctrl</kbd> + <kbd>b</kbd> <kbd>]</kbd></kbd> pastes from tmux's most recently created paste buffer (i.e. pastes the most recently copied text)
+* <kbd><kbd>Ctrl</kbd> + <kbd>b</kbd> <kbd>=</kbd></kbd> shows you all the paste buffers and lets you choose one to paste from
 
 tmux maintains a list of paste buffers. When you copy some text it creates a new paste buffer and copies the text into it. When you then copy some text again it
 creates _another_ new paste buffer, so previously copied texts are still available in their historical paste buffers and can be viewed and pasted using
-<kbd><kbd>Ctrl</kbd> + <kbd>=</kbd></kbd>.
+<kbd><kbd>Ctrl</kbd> + <kbd>b</kbd> <kbd>=</kbd></kbd>.
 
 As well as copying text, <kbd>Enter</kbd> also exits copy mode and loses your place. If you don't want <kbd>Enter</kbd> to exit copy mode add this to your
 `~/.tmux.conf`:
