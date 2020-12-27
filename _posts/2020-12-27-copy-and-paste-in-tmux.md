@@ -117,7 +117,7 @@ The [tmux-yank](https://github.com/tmux-plugins/tmux-yank) plugin adds some keyb
   mouse clicking (to send the middle-mouse-click through to your terminal emulator, not to tmux).
 
 * If you've set `@yank_action` to `'copy-pipe'` or `'copy-pipe-no-clear'` (see below) then you can also select a word by double-clicking or an entire line by
-  triple clicking, but you already to be in copy mode for this to work. I can't find a way to make double- and triple-clicking select words and lines when not
+  triple clicking, but you have to already to be in copy mode for this to work. I can't find a way to make double- and triple-clicking select words and lines when not
   already in copy mode.
 
 * In copy mode:
