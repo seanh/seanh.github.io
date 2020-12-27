@@ -6,9 +6,7 @@ How to copy and paste in [tmux](https://github.com/tmux/tmux), including with th
 </p>
 
 <div class="seealso" markdown="1">
-See also:
-
-* [My tmux config](https://github.com/seanh/tmux)
+See also: [my tmux config](https://github.com/seanh/tmux)
 </div>
 
 ## tmux's copy mode
