@@ -5,6 +5,12 @@ Copy & Paste in tmux
 How to copy and paste in [tmux](https://github.com/tmux/tmux), including with the system's primary selection and clipboard.
 </p>
 
+<div class="seealso" markdown="1">
+See also:
+
+* [My tmux config](https://github.com/seanh/tmux)
+</div>
+
 ## tmux's copy mode
 
 <div class="note" markdown="1">
