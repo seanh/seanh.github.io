@@ -131,23 +131,52 @@ Some other useful copy-mode keyboard shortcuts (there are more, see [`man tmux`]
   
   This works with a vi-like prefix, so <kbd><kbd>3</kbd> <kbd>Y</kbd></kbd> will copy three lines (the current line and the two below it).
 
+
 ## Using tmux-yank to copy into the system clipboard
 
-The [tmux-yank](https://github.com/tmux-plugins/tmux-yank) plugin adds some keybindings for copying into the system clipboard:
+The [tmux-yank](https://github.com/tmux-plugins/tmux-yank) plugin adds some keybindings for copying into the primary selection and clipboard:
 
-* Selecting text with the mouse (if tmux's mouse mode is enabled) copies it into the system primary selection. (You don't have to press anything to do the copy,
-  just select some text.)
+### Copying into the primary selection with tmux-yank
+
+Selecting text with the mouse (if tmux's mouse mode is enabled) copies it into the system primary selection. (You don't have to press anything to do the copy, just select some text.)
   
-  This will probably also work if you _don't_ have tmux's mouse mode enabled, because the text selection will be handled by your terminal emulator instead of tmux
-  and your terminal emulator probably copies selected text into the primary selection.
+This will probably also work if you _don't_ have tmux's mouse mode enabled, because the text selection will be handled by your terminal emulator instead of tmux
+and your terminal emulator probably copies selected text into the primary selection. But if you do have mouse mode enabled then you need tmux-yank in order for
+mouse selections to be copied.
 
-  In most apps middle-mouse-click pastes from the primary selection. In tmux if you have mouse mode enabled you have to hold down <kbd>Shift</kbd> while middle
-  mouse clicking (to send the middle-mouse-click through to your terminal emulator, not to tmux).
-  See [Pasting from the primary selection](#pasting-from-the-primary-selection) below for a fix.
+In most terminal emulators double-clicking the <kbd>Left Mouse Button</kbd> on a word will select that word and copy it into the primary selection, and triple-
+clicking will select a whole line. To get this working in tmux add this to your `~/.tmux.conf` (requires `xsel` to be installed):
 
-* If you've set `@yank_action` to `'copy-pipe'` or `'copy-pipe-no-clear'` (see below) then you can also select a word by double-clicking or an entire line by
-  triple clicking, but you have to already to be in copy mode for this to work. I can't find a way to make double- and triple-clicking select words and lines when not
-  already in copy mode.
+```
+# Make double-left-click select the word under the cursor (entering copy mode
+# if not already in it) and copy the word into the primary selection.
+bind-key -T copy-mode-vi DoubleClick1Pane \
+    select-pane \; \
+    send-keys -X select-word \; \
+    send-keys -X copy-pipe-no-clear "xsel -i"
+bind-key -n DoubleClick1Pane \
+    select-pane \; \
+    copy-mode -M \; \
+    send-keys -X select-word \; \
+    send-keys -X copy-pipe-no-clear "xsel -i"
+# Make triple-left-click select the line under the cursor (entering copy mode
+# if not already in it) and copy the line into the primary selection.
+bind-key -T copy-mode-vi TripleClick1Pane \
+    select-pane \; \
+    send-keys -X select-line \; \
+    send-keys -X copy-pipe-no-clear "xsel -i"
+bind-key -n TripleClick1Pane \
+    select-pane \; \
+    copy-mode -M \; \
+    send-keys -X select-line \; \
+    send-keys -X copy-pipe-no-clear "xsel -i"
+```
+
+In most apps middle-mouse-click pastes from the primary selection. In tmux if you have mouse mode enabled you have to hold down <kbd>Shift</kbd> while middle
+mouse clicking (to send the middle-mouse-click through to your terminal emulator, not to tmux).
+See [Pasting from the primary selection](#pasting-from-the-primary-selection) below for a fix.
+
+### Copying into the clipboard with tmux-yank
 
 * In copy mode:
 
@@ -158,7 +187,7 @@ The [tmux-yank](https://github.com/tmux-plugins/tmux-yank) plugin adds some keyb
     1. Select some text with the mouse (this already copies the text into the primary selection)
     2. Click <kbd>y</kbd> to copy the text to the clipboard
     
-    This again requires setting `@yank_action` to `'copy-pipe'` or `'copy-pipe-no-clear'`, see below.
+    This requires setting `@yank_action` to `'copy-pipe'` or `'copy-pipe-no-clear'`, see below.
 
     Or you can select some text with the keyboard in copy mode and click <kbd>y</kbd>.
   
