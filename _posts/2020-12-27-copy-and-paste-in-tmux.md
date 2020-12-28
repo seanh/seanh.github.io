@@ -132,7 +132,7 @@ Some other useful copy-mode keyboard shortcuts (there are more, see [`man tmux`]
   This works with a vi-like prefix, so <kbd><kbd>3</kbd> <kbd>Y</kbd></kbd> will copy three lines (the current line and the two below it).
 
 
-## Using tmux-yank to copy into the system clipboard
+## tmux-yank
 
 The [tmux-yank](https://github.com/tmux-plugins/tmux-yank) plugin adds some keybindings for copying into the primary selection and clipboard:
 
