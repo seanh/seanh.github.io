@@ -85,7 +85,7 @@ bind-key -T copy-mode-vi r send-keys -X rectangle-toggle
 
 <div class="hint" markdown="1">
 
-#### Copy mode keyboard shortcutes
+#### Copy mode keyboard shortcuts
 
 Some other useful copy-mode keyboard shortcuts (there are more, see [`man tmux`](http://manpages.ubuntu.com/manpages/focal/man1/tmux.1.html)):
 
