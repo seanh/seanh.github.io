@@ -1,3 +1,7 @@
+---
+tags: [tmux]
+---
+
 Copy & Paste in tmux
 ====================
 
