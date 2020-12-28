@@ -83,6 +83,10 @@ bind-key -T copy-mode-vi y send-keys -X copy-selection-no-clear
 bind-key -T copy-mode-vi r send-keys -X rectangle-toggle
 ```
 
+<div class="hint" markdown="1">
+
+#### Copy mode keyboard shortcutes
+
 Some other useful copy-mode keyboard shortcuts (there are more, see [`man tmux`](http://manpages.ubuntu.com/manpages/focal/man1/tmux.1.html)):
 
 * <kbd>Esc</kbd> clears the selection and stays in copy mode
@@ -130,7 +134,7 @@ Some other useful copy-mode keyboard shortcuts (there are more, see [`man tmux`]
   ```
   
   This works with a vi-like prefix, so <kbd><kbd>3</kbd> <kbd>Y</kbd></kbd> will copy three lines (the current line and the two below it).
-
+</div>
 
 ## tmux-yank
 
