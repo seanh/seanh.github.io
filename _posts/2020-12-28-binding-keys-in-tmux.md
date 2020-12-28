@@ -63,7 +63,7 @@ If using the `tmux bind` shell command you may need to quote the commands instea
 
     tmux bind t 'new-window; display-message "new window opened"'
 
-A multiline format is also possible by ending each line with ` \` or (if the line is part of the command) ` \; \`. Example:
+A multiline format is also possible by ending each line with ` \\` or (if the line is part of the command) ` \\; \\`. Example:
 
 ```
 bind -n DoubleClick1Pane \
