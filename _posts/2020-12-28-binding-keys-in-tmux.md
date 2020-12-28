@@ -9,7 +9,7 @@ Binding Keys in tmux
 To list all current key bindings, including any custom bindings you've added and bindings added by plugins:
 
 * <kbd><kbd><kbd>Ctrl</kbd> + <kbd>b</kbd></kbd> <kbd>?</kbd></kbd>
-* `tmux list-keys` or `tmux lsk`) in a shell inside tmux
+* `tmux list-keys` or `tmux lsk` in a shell inside tmux
 * `list-keys` or `lsk` at tmux's command prompt (<kbd><kbd><kbd>Ctrl</kbd> + <kbd>b</kbd></kbd> <kbd>:</kbd></kbd>)
 </div>
 
@@ -46,6 +46,8 @@ Every keybinding lives in a **key table**. There are three built-in key tables:
    (add `set-window-option -g mode-keys vi` to your `~/.tmux.conf` file to force vi-style). Use `-T copy-mode-vi` to bind keys in this table.
    Example: `bind -T copy-mode-vi C-t new-window`
 
+## Repeatable prefix key bindings
+
 For key bindings in the `prefix` table the `-r` option can be used to make them repeatable.
 For example with `tmux bind -r t new-window` <kbd><kbd><kbd>Ctrl</kbd> + <kbd>b</kbd></kbd> <kbd>t</kbd></kbd> is needed to open a first new window, then you can
 keep hitting <kbd>t</kbd> to open more without having to hit <kbd><kbd>Ctrl</kbd> + <kbd>b</kbd></kbd> each time. The `repeat-time` setting decides how much time
@@ -60,6 +62,16 @@ You can use `\;` to separate multiple commands in a single key binding:
 If using the `tmux bind` shell command you may need to quote the commands instead:
 
     tmux bind t 'new-window; display-message "new window opened"'
+
+A multiline format is also possible by ending each line with ` \` or (if the line is part of the command) ` \; \`. Example:
+
+```
+bind -n DoubleClick1Pane \
+    select-pane \; \
+    copy-mode -M \; \
+    send-keys -X select-word \; \
+    send-keys -X copy-pipe-no-clear "xsel -i"
+```
 
 ## Binding a sequence of keys: custom key tables
 
