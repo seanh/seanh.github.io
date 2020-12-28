@@ -144,6 +144,10 @@ This will probably also work if you _don't_ have tmux's mouse mode enabled, beca
 and your terminal emulator probably copies selected text into the primary selection. But if you do have mouse mode enabled then you need tmux-yank in order for
 mouse selections to be copied.
 
+In most apps <kbd>Middle Mouse Button</kbd> pastes from the primary selection. In tmux if you have mouse mode enabled you have to hold down <kbd>Shift</kbd> while 
+middle mouse clicking (to send the middle-mouse-click through to your terminal emulator, not to tmux).
+See [Pasting from the primary selection](#pasting-from-the-primary-selection) below for a fix.
+
 In most terminal emulators double-clicking the <kbd>Left Mouse Button</kbd> on a word will select that word and copy it into the primary selection, and triple-
 clicking will select a whole line. To get this working in tmux add this to your `~/.tmux.conf` (requires `xsel` to be installed):
 
@@ -171,10 +175,6 @@ bind-key -n TripleClick1Pane \
     send-keys -X select-line \; \
     send-keys -X copy-pipe-no-clear "xsel -i"
 ```
-
-In most apps middle-mouse-click pastes from the primary selection. In tmux if you have mouse mode enabled you have to hold down <kbd>Shift</kbd> while middle
-mouse clicking (to send the middle-mouse-click through to your terminal emulator, not to tmux).
-See [Pasting from the primary selection](#pasting-from-the-primary-selection) below for a fix.
 
 ### Copying into the clipboard with tmux-yank
 
