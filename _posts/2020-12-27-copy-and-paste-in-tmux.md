@@ -136,13 +136,26 @@ Some other useful copy-mode keyboard shortcuts (there are more, see [`man tmux`]
 
 The [tmux-yank](https://github.com/tmux-plugins/tmux-yank) plugin adds some keybindings for copying into the primary selection and clipboard:
 
+### Don't clear the selection on copy
+
+By default tmux-yank clears the selection and exits copy mode as soon as you click <kbd>y</kbd> to copy some text or as soon as you release the
+<kbd>Left Mouse Button</kbd> if selecting text with the mouse. To make it behave like a normal app (copying text or releasing the mouse button neither clears the
+selection or exits copy mode) add this to your `~/.tmux.conf`:
+
+```
+set -g @yank_action 'copy-pipe-no-clear'
+```
+
+This is much nicer. For example you can start off a selection with the mouse and then fine-tune it with the keyboard. Or select some text with the mouse, which
+already copies the text into the primary selection, and then click <kbd>y</kbd> to also copy it into the clipboard.
+
 ### Copying into the primary selection with tmux-yank
 
-Selecting text with the mouse (if tmux's mouse mode is enabled) copies it into the system primary selection. (You don't have to press anything to do the copy, just select some text.)
+Selecting text with the mouse (if tmux's mouse mode is enabled) copies it into the system primary selection. You don't have to press anything to do the copy, just select some text. The text also gets copied into a new tmux paste buffer as well so it won't be lost if you later select some other text.
   
-This will probably also work if you _don't_ have tmux's mouse mode enabled, because the text selection will be handled by your terminal emulator instead of tmux
-and your terminal emulator probably copies selected text into the primary selection. But if you do have mouse mode enabled then you need tmux-yank in order for
-mouse selections to be copied.
+This will probably also work if you _don't_ have tmux's mouse mode enabled, though without the tmux paste buffer integration. The text selection will be handled by
+your terminal emulator instead of tmux and your terminal emulator probably copies selected text into the primary selection. But if you do have tmux's mouse mode
+enabled then you need tmux-yank in order for mouse selections to be copied.
 
 In most apps <kbd>Middle Mouse Button</kbd> pastes from the primary selection. In tmux if you have mouse mode enabled you have to hold down <kbd>Shift</kbd> while 
 middle mouse clicking (to send the middle-mouse-click through to your terminal emulator, not to tmux).
@@ -178,36 +191,28 @@ bind-key -n TripleClick1Pane \
 
 ### Copying into the clipboard with tmux-yank
 
-* In copy mode:
+In copy mode:
 
-  * <kbd>y</kbd> copies the selected text to the clipboard.
+* <kbd>y</kbd> copies the selected text to the clipboard.
   
-    Selecting text with the mouse puts you into copy mode, so you can:
+  Selecting text with the mouse puts you into copy mode, so you can:
     
-    1. Select some text with the mouse (this already copies the text into the primary selection)
-    2. Click <kbd>y</kbd> to copy the text to the clipboard
+  1. Select some text with the mouse (this already copies the text into the primary selection)
+  2. Click <kbd>y</kbd> to copy the text to the clipboard
     
-    This requires setting `@yank_action` to `'copy-pipe'` or `'copy-pipe-no-clear'`, see below.
+  (This requires the `set -g @yank_action 'copy-pipe-no-clear'` setting from above.)
 
-    Or you can select some text with the keyboard in copy mode and click <kbd>y</kbd>.
+  Or you can just select some text with the keyboard in copy mode and click <kbd>y</kbd>.
   
-    tmux-yank still copies the text into a tmux paste buffer as well, so the text can still be pasted with <kbd><kbd>Ctrl</kbd> + <kbd>b</kbd> <kbd>]</kbd></kbd> or
-    <kbd><kbd>Ctrl</kbd> + <kbd>b</kbd> <kbd>=</kbd></kbd> and won't be lost if you copy some more text.
+  tmux-yank still copies the text into a tmux paste buffer as well, so the text can still be pasted with <kbd><kbd>Ctrl</kbd> + <kbd>b</kbd> <kbd>]</kbd></kbd> or
+  <kbd><kbd>Ctrl</kbd> + <kbd>b</kbd> <kbd>=</kbd></kbd> and won't be lost if you copy some more text.
     
-  By default tmux-yank will clear the selection and exit copy mode when you click <kbd>y</kbd> or as soon as you lift the mouse button if selecting text with the
-  mouse. To stop it from clearing the selection add this to your `~/.tmux.conf`:
-
-  ```
-  # Don't clear the selection or exit copy mode after copying with y or selecting with the mouse.
-  set -g @yank_action 'copy-pipe-no-clear'
-  ```
-
-  * <kbd>Y</kbd> pastes the current selection onto the command line
+* <kbd>Y</kbd> pastes the current selection onto the command line
   
-* In default mode:
+In default mode:
 
-  * <kbd><kbd>Ctrl</kbd> + <kbd>b</kbd> <kbd>y</kbd></kbd> copies what's on your shell's command line to the clipboard
-  * <kbd><kbd>Ctrl</kbd> + <kbd>b</kbd> <kbd>Y</kbd></kbd> copies the current pane's working directory to the clipboard
+* <kbd><kbd>Ctrl</kbd> + <kbd>b</kbd> <kbd>y</kbd></kbd> copies what's on your shell's command line to the clipboard
+* <kbd><kbd>Ctrl</kbd> + <kbd>b</kbd> <kbd>Y</kbd></kbd> copies the current pane's working directory to the clipboard
 
 ## Pasting from the primary selection
 
