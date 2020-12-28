@@ -188,7 +188,6 @@ To make <kbd>Middle Mouse Button</kbd> paste from the primary selection _without
 
 ```
 # Make middle-mouse-click paste from the primary selection (without having to hold down Shift).
-# Make middle-mouse-click paste from the primary selection (without having to hold down Shift).
 bind-key -n MouseDown2Pane run "tmux set-buffer -b primary_selection \"$(xsel -o)\"; tmux paste-buffer -b primary_selection; tmux delete-buffer -b primary_selection"
 ```
 
