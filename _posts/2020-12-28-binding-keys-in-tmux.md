@@ -30,7 +30,7 @@ To remove the key binding:
 
     unbind C-t
 
-The `C-` stands for <kbd>Control</kbd>. There's also `M-` for <kbd>Alt</kbd>, e.g. `bind M-t new-window`. There are also several special key names for use in
+The `C-` stands for <kbd>Control</kbd>. There's also `S-` for shift and `M-` for <kbd>Alt</kbd>, e.g. `bind M-t new-window`, `bind -n C-S-PgDn swap-window -t +1`. There are also several special key names for use in
 `bind` commands, including: `Up`, `Down`, `Left`, `Right`, `BSpace`, `Delete`, `End`, `Enter`, `Escape`, `F1` ... `F12`, `Home`, `Insert`, `PageDown` or `PgDn`,
 `PageUp` or `PgUp`, `Space` and `Tab`.
 
