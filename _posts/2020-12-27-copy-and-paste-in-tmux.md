@@ -28,11 +28,39 @@ In copy mode:
 Back in default mode:
 
 * <kbd><kbd>Ctrl</kbd> + <kbd>b</kbd> <kbd>]</kbd></kbd> pastes from tmux's most recently created paste buffer (i.e. pastes the most recently copied text)
-* <kbd><kbd>Ctrl</kbd> + <kbd>b</kbd> <kbd>=</kbd></kbd> shows you all the paste buffers and lets you choose one to paste from
+* <kbd><kbd>Ctrl</kbd> + <kbd>b</kbd> <kbd>=</kbd></kbd> (or `tmux choose-buffer` on the command line) shows you all the paste buffers and lets you choose one to paste from
+
+<div class="hint" markdown="1">
+
+#### tmux's Paste Buffers
 
 tmux maintains a list of paste buffers. When you copy some text it creates a new paste buffer and copies the text into it. When you then copy some text again it
 creates _another_ new paste buffer, so previously copied texts are still available in their historical paste buffers and can be viewed and pasted using
-<kbd><kbd>Ctrl</kbd> + <kbd>b</kbd> <kbd>=</kbd></kbd>.
+<kbd><kbd>Ctrl</kbd> + <kbd>b</kbd> <kbd>=</kbd></kbd> (`tmux choose-buffer`).
+
+There are also commands for working with paste buffers so you can script them, my <kbd>Middle Mouse Button</kbd> key binding below uses these:
+
+* `tmux show-buffer` or `tmux showb` prints the contents of the most recent buffer
+* `tmux list-buffers` or `tmux lsb` prints a list of the buffers and their contents
+* `tmux set-buffer <DATA>` or `tmux setb <DATA>` creates a new buffer and loads `<DATA>` into it
+* `tmux load-buffer <PATH>` or `tmux loadb <PATH>` creates a new buffer and loads the contents of a file into it
+* `tmux paste-buffer` or `tmux pasteb` pastes the most recent buffer into the current pane (you can also pass `-t <target-pane>` to paste into another pane)
+* `tmux save-buffer <PATH>` or `tmux saveb <PATH>` writes the most recent buffer to a file, pass `-a` to append to the file instead of overwriting it
+* `tmux delete-buffer` deletes the most recently added buffer
+
+As well as using them as normal shell commands these can also be used on the tmux command line, for example:
+<kbd><kbd>Ctrl</kbd> + <kbd>b</kbd> <kbd>:</kbd> <kbd>showb</kbd> <kbd>Enter</kbd></kbd>
+
+These all take an optional `-b <buffer-name>` argument to work with a named buffer instead of the most recent one.
+For example to load some data into `my_buffer`, paste it, and then delete the buffer: 
+
+```terminal
+$ tmux set-buffer -b my_buffer <DATA>
+$ tmux set-buffer -b my_buffer -a <MORE_DATA>  # Append more data to the same buffer
+$ tmux paste-buffer -b my_buffer
+$ tmux delete-buffer -b my_buffer
+```
+</div>
 
 As well as copying text, <kbd>Enter</kbd> also exits copy mode and loses your place. If you don't want <kbd>Enter</kbd> to exit copy mode add this to your
 `~/.tmux.conf`:
@@ -115,6 +143,7 @@ The [tmux-yank](https://github.com/tmux-plugins/tmux-yank) plugin adds some keyb
 
   In most apps middle-mouse-click pastes from the primary selection. In tmux if you have mouse mode enabled you have to hold down <kbd>Shift</kbd> while middle
   mouse clicking (to send the middle-mouse-click through to your terminal emulator, not to tmux).
+  See [Pasting from the primary selection](#pasting-from-the-primary-selection) below for a fix.
 
 * If you've set `@yank_action` to `'copy-pipe'` or `'copy-pipe-no-clear'` (see below) then you can also select a word by double-clicking or an entire line by
   triple clicking, but you have to already to be in copy mode for this to work. I can't find a way to make double- and triple-clicking select words and lines when not
@@ -150,6 +179,18 @@ The [tmux-yank](https://github.com/tmux-plugins/tmux-yank) plugin adds some keyb
 
   * <kbd><kbd>Ctrl</kbd> + <kbd>b</kbd> <kbd>y</kbd></kbd> copies what's on your shell's command line to the clipboard
   * <kbd><kbd>Ctrl</kbd> + <kbd>b</kbd> <kbd>Y</kbd></kbd> copies the current pane's working directory to the clipboard
+
+## Pasting from the primary selection
+
+To paste from the primary selection: <kbd><kbd>Shift</kbd> + <kbd>Middle Mouse Button</kbd></kbd>.
+To make <kbd>Middle Mouse Button</kbd> paste from the primary selection _without_ having to hold down <kbd>Shift</kbd>, add this to your `~/.tmux.conf`
+(requires `xsel` to be installed: `sudo apt install xsel`):
+
+```
+# Make middle-mouse-click paste from the primary selection (without having to hold down Shift).
+# Make middle-mouse-click paste from the primary selection (without having to hold down Shift).
+bind-key -n MouseDown2Pane run "tmux set-buffer -b primary_selection \"$(xsel -o)\"; tmux paste-buffer -b primary_selection; tmux delete-buffer -b primary_selection"
+```
 
 ## Pasting from the system clipboard
 
