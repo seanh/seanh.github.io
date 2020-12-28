@@ -35,7 +35,7 @@ There are four types of option:
    show status
    ```
 
-   Each session option also has a global value that each session inherits by default. Use `-g` to change the global value. When setting a session option in your
+   Each session option also has a global value that each session inherits by default. Use `-g` to change the global default. When setting a session option in your
    `~/.tmux.conf` file you _always_ want `-g` because there is no current session. Example:
    
    ```
@@ -58,7 +58,7 @@ There are four types of option:
    tmux set window-status-separator '|'  # Change this window's status separator to "|"
    ```
    
-   Each window option also has a global value that each window inherits by default. Use `-g` to change the global value. When setting a window option in your
+   Each window option also has a global value that each window inherits by default. Use `-g` to change the global default. When setting a window option in your
    `~/.tmux.conf` you _always_ want `-g` because there is no current window. Example:
 
    ```
