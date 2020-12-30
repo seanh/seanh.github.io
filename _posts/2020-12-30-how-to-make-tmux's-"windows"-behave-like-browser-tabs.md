@@ -7,6 +7,7 @@ How to Make tmux's "Windows" Behave like Browser Tabs
 
 <p class="lead" markdown="1">
 Make tmux tabs ("windows") look more like browser tabs, and control them using the same keyboard shortcuts that you're used to from browsers and other apps.
+Plus some browser-like search shortcuts at the bottom.
 </p>
 
 Key bindings
@@ -96,3 +97,41 @@ bottom-left and bottom-right of the window:
 set -g status-left ''
 set -g status-right ''
 ```
+
+Search
+------
+
+Here's a snippet to add browser-like keyboard bindings for searching:
+
+<kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>f</kbd></kbd> Begin a search of the terminal history.
+
+<kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>g</kbd></kbd> Go to the next search match. Just <kbd>n</kbd> also works (tmux's default).
+
+<kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>h</kbd></kbd> Go to the previous search match.  Just <kbd>N</kbd> also works (tmux's default).
+
+<kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>j</kbd></kbd> Clear the search. Just <kbd>q</kbd> also works (tmux's default).
+
+These are just <kbd><kbd>Ctrl</kbd> + <kbd>f</kbd></kbd>, <kbd><kbd>Ctrl</kbd> + <kbd>g</kbd></kbd>, etc in Chrome and Firefox but those are likely to conflict
+with terminal apps so I've followed GNOME Terminal in using <kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd></kbd> and in using
+<kbd>h</kbd> to go to the previous match.
+
+These assume you're using vi-style copy mode bindings (see the `mode-keys` setting in [`man tmux`](http://manpages.ubuntu.com/manpages/focal/man1/tmux.1.html).
+If you're using the default emacs-style copy mode bindings replace `copy-mode-vi` with just `copy-mode`.
+
+```
+bind -n C-F copy-mode \; command-prompt -i -p "(search up)" "send -X search-backward-incremental \"%%%\""
+bind -T copy-mode-vi C-G send-keys -X search-again
+bind -T copy-mode-vi C-H send-keys -X search-reverse
+bind -T copy-mode-vi C-J send-keys -X cancel
+```
+
+These use _incremental_ search, so it'll highlight all matches and jump to the first match as you type (instead of waiting for you to hit <kbd>Enter</kbd>).
+To also make the normal <kbd>/</kbd> and <kbd>?</kbd> search commands in copy mode search incrementally, add:
+
+```
+bind -T copy-mode-vi / command-prompt -i -p   "(search down)" "send -X search-forward-incremental \"%%%\""
+bind -T copy-mode-vi ? command-prompt -i -p   "(search up)" "send -X search-backward-incremental \"%%%\""
+```
+
+Again, this is for vi-style copy mode bindings. If you're using the default emacs-style copy mode bindings then <kbd><kbd>Ctrl</kbd> + <kbd>r</kbd></kbd>
+and <kbd><kbd>Ctrl</kbd> + <kbd>s</kbd></kbd> already do incremental search.
