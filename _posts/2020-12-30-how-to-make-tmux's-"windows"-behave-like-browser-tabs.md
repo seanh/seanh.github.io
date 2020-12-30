@@ -1,7 +1,4 @@
 ---
-draft: true
-sitemap: false
-robots: noindex, nofollow
 tags: [tmux]
 ---
 
@@ -9,7 +6,7 @@ How to Make tmux's "Windows" Behave like Browser Tabs
 =====================================================
 
 <p class="lead" markdown="1">
-Make tmux tabs ("windows") look more like browsser tabs, and control them using the keyboard shortcuts that you're used to from browsers and other apps.
+Make tmux tabs ("windows") look more like browser tabs, and control them using the same keyboard shortcuts that you're used to from browsers and other apps.
 </p>
 
 Key bindings
@@ -19,27 +16,29 @@ Add the snippet below to your `~/.tmux.conf` file to get browser-like keyboard s
 
 <kbd><kbd>Ctrl</kbd> + <kbd>t</kbd></kbd> Open a new tab.
 
-<kbd><kbd>Ctrl</kbd> + <kbd>Page Down</kbd></kbd>, <kbd><kbd>Ctrl</kbd> + <kbd>Page Up</kbd></kbd> Go to the next, previous tab.
-In browsers <kbd><kbd>Ctrl</kbd> + <kbd>Tab</kbd></kbd> and <kbd><kbd>Shift</kbd> + <kbd>Ctrl</kbd> + <kbd>Tab</kbd></kbd> also work, but binding `C-Tab` and
-`S-C-Tab` in tmux doesn't seem to work.
+<kbd><kbd>Ctrl</kbd> + <kbd>Page Down</kbd></kbd>, <kbd><kbd>Ctrl</kbd> + <kbd>Page Up</kbd></kbd> Go to the next, previous tab.  
+In browsers <kbd><kbd>Ctrl</kbd> + <kbd>Tab</kbd></kbd> and <kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Tab</kbd></kbd> also work, but binding `C-Tab` and
+`C-S-Tab` in tmux doesn't seem to work.
 
-<kbd><kbd>Shift</kbd> + <kbd>Ctrl</kbd> + <kbd>&larr;</kbd></kbd>, <kbd><kbd>Shift</kbd> + <kbd>Ctrl</kbd> + <kbd>&rarr;</kbd></kbd> Move the current tab left,
-right (swapping it with the left or right adjacent tab). In browsers this is <kbd><kbd>Shift</kbd> + <kbd>Ctrl</kbd> + <kbd>Page Up</kbd></kbd> and
-<kbd><kbd>Shift</kbd> + <kbd>Ctrl</kbd> + <kbd>Page Down</kbd></kbd> but binding `S-C-PgUp` and `S-C-PgDn` in tmux doesn't seem to work.
+<kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>&larr;</kbd></kbd>, <kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>&rarr;</kbd></kbd> Move the current tab left,
+right (swapping it with the left or right adjacent tab).  
+In browsers this is <kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Page Up</kbd></kbd> and
+<kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Page Down</kbd></kbd> but binding `C-S-PgUp` and `C-S-PgDn` in tmux doesn't seem to work.
 
-<kbd><kbd>Alt</kbd> + <kbd>1</kbd> ... <kbd>8</kbd></kbd> Jump to tab 1 ... 8.
+<kbd><kbd>Alt</kbd> + <kbd>1</kbd> &hellip; <kbd>8</kbd></kbd> Jump to tab 1 ... 8.
 
 <kbd><kbd>Alt</kbd> + <kbd>9</kbd></kbd> Jump to tab 9 (I couldn't figure out how to implement "jump to rightmost tab").
 
 <kbd><kbd>Alt</kbd> + <kbd>0</kbd></kbd> Jump to tab 10.
 
-<kbd><kbd>Shift</kbd> + <kbd>Ctrl</kbd> + <kbd>w</kbd></kbd> Close the current tab. In browsers this is just <kbd><kbd>Ctrl</kbd> + <kbd>w</kbd></kbd> but
+<kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>w</kbd></kbd> Close the current tab.  
+In browsers this is just <kbd><kbd>Ctrl</kbd> + <kbd>w</kbd></kbd> but
 <kbd><kbd>Ctrl</kbd> + <kbd>w</kbd></kbd> is often used by terminal apps (for example vim uses it for switching between windows). I followed GNOME Terminal's lead
-in using <kbd><kbd>Shift</kbd> + <kbd>Ctrl</kbd> + <kbd>w</kbd></kbd> to close tabs instead.
+in using <kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>w</kbd></kbd> to close tabs instead.
 
-<kbd><kbd>Shift</kbd> + <kbd>Ctrl</kbd> + <kbd>q</kbd></kbd> Ask for confirmation before closing all tabs and killing the current tmux session.
-Browsers use <kbd><kbd>Shift</kbd> + <kbd>Ctrl</kbd> + <kbd>w</kbd></kbd> to close the current window and all its tabs, but I've already used that for closing a
-single tab. So I've followed GNOME Terminal again and used <kbd><kbd>Shift</kbd> + <kbd>Ctrl</kbd> + <kbd>q</kbd></kbd> to close the whole window.
+<kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>q</kbd></kbd> Ask for confirmation before closing all tabs and killing the current tmux session.
+Browsers use <kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>w</kbd></kbd> to close the current window and all its tabs, but I've already used that for closing a
+single tab. So I've followed GNOME Terminal again and used <kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>q</kbd></kbd> to close the whole window.
 Firefox does also use <kbd><kbd>Ctrl</kbd> + <kbd>q</kbd></kbd> for quit (closing _all_ windows and tabs).
 
 <kbd>F11</kbd> Toggle the current pane between zoomed (occupying the whole window and hiding all other panes) and unzoomed (normal).
@@ -80,4 +79,20 @@ set -g window-status-last-style "bg=#444444 fg=#ffffff"
 set -g window-status-separator ''  # No spaces between windows in the status bar.
 set -g window-status-format "#{?window_start_flag,, }#I:#W#{?window_flags,#F, } "
 set -g window-status-current-format "#{?window_start_flag,, }#I:#W#{?window_flags,#F, } "
+```
+
+<figure>
+  <img src="/assets/images/tmux-tabs.png" style="box-shadow:none;">
+  <figcaption>tmux's tabs ("windows") styled to look a bit more like browser tabs.</figcaption>
+</figure>
+
+You can also move the tabs to the top of the window with `set -g
+status-position top`, but I find I prefer them at the bottom.
+
+In the screenshot I've also removed the default stuff that tmux puts in the
+bottom-left and bottom-right of the window:
+
+```
+set -g status-left ''
+set -g status-right ''
 ```
