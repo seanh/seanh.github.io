@@ -9,6 +9,19 @@ Setting Options in tmux
 How to use tmux's `set` and `show` commands to set and query tmux config settings ("options").
 </p>
 
+<div class="note" markdown="1">
+
+#### TLDR
+
+* `set foo bar` sets an option for the current window or session.
+* `set -g foo bar` sets an option globally (for all windows and sessions that don't have a local setting for that option).
+  You always want `set -g` in your `~/.tmux.conf` file because there's no current window or session at the time when the file is read.
+* `show -A foo` shows the current window or session's current setting for an option.
+  The setting will be flagged with `*` if it's being inherited from the global setting.
+* `set -u foo` unsets an option, reverting to the default. `set -gu foo` unsets a global option.
+
+</div>
+
 The `set-option` command (alias `set`) sets options, and `show-option` (alias `show`) shows what value an option is currently set to.
 See [`man tmux`](http://manpages.ubuntu.com/manpages/focal/man1/tmux.1.html#options) for a list of all the available options.
 There are three ways to enter a `set` or `show` command:
