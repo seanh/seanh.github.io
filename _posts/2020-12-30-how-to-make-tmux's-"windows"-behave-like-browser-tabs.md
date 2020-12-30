@@ -115,7 +115,7 @@ These are just <kbd><kbd>Ctrl</kbd> + <kbd>f</kbd></kbd>, <kbd><kbd>Ctrl</kbd> +
 with terminal apps so I've followed GNOME Terminal in using <kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd></kbd> and in using
 <kbd>h</kbd> to go to the previous match.
 
-These assume you're using vi-style copy mode bindings (see the `mode-keys` setting in [`man tmux`](http://manpages.ubuntu.com/manpages/focal/man1/tmux.1.html).
+These assume you're using vi-style copy mode bindings (see the `mode-keys` setting in [`man tmux`](http://manpages.ubuntu.com/manpages/focal/man1/tmux.1.html)).
 If you're using the default emacs-style copy mode bindings replace `copy-mode-vi` with just `copy-mode`.
 
 ```
