@@ -120,6 +120,7 @@ If you're using the default emacs-style copy mode bindings replace `copy-mode-vi
 
 ```
 bind -n C-F copy-mode \; command-prompt -i -p "(search up)" "send -X search-backward-incremental \"%%%\""
+bind -T copy-mode-vi C-F copy-mode \; command-prompt -i -p "(search up)" "send -X search-backward-incremental \"%%%\""
 bind -T copy-mode-vi C-G send-keys -X search-again
 bind -T copy-mode-vi C-H send-keys -X search-reverse
 bind -T copy-mode-vi C-J send-keys -X cancel
