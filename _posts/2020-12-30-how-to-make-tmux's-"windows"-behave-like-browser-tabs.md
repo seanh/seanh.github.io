@@ -45,13 +45,13 @@ Firefox does also use <kbd><kbd>Ctrl</kbd> + <kbd>q</kbd></kbd> for quit (closin
 <kbd>F11</kbd> Toggle the current pane between zoomed (occupying the whole window and hiding all other panes) and unzoomed (normal).
 
 ```
+set -g base-index 1       # Start numbering windows at 1, not 0.
+set -g pane-base-index 1  # Start numbering panes at 1, not 0.
 bind -n C-t new-window
 bind -n C-PgDn next-window
 bind -n C-PgUp previous-window
 bind -n C-S-Left swap-window -t -1\; select-window -t -1
 bind -n C-S-Right swap-window -t +1\; select-window -t +1
-set -g base-index 1       # Start numbering windows at 1, not 0.
-set -g pane-base-index 1  # Start numbering panes at 1, not 0.
 bind -n M-1 select-window -t 1
 bind -n M-2 select-window -t 2
 bind -n M-3 select-window -t 3
