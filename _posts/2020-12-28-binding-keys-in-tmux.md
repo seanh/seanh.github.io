@@ -46,7 +46,7 @@ But if you want to bind <kbd><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>&larr;</kb
 So while you can do `bind C-N ...` the binding will be triggered by either <kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>n</kbd></kbd>
 or just <kbd><kbd>Ctrl</kbd> + <kbd>n</kbd></kbd>.
 
-There are various other modifier key limitations as well, see [Modifier Keys](https://github.com/tmux/tmux/wiki/Modifier-Keys#limitations-of-ctrl-keys)
+There are various other modifier key limitations as well, see [Modifier Keys](https://github.com/tmux/tmux/wiki/Modifier-Keys)
 on the tmux wiki.
 
 </div>
