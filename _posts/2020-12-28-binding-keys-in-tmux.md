@@ -34,6 +34,20 @@ The `C-` stands for <kbd>Control</kbd>. There's also `S-` for <kbd>Shift</kbd> a
 `bind` commands, including: `Up`, `Down`, `Left`, `Right`, `BSpace`, `Delete`, `End`, `Enter`, `Escape`, `F1` ... `F12`, `Home`, `Insert`, `PageDown` or `PgDn`,
 `PageUp` or `PgUp`, `Space` and `Tab`.
 
+<div class="warning" markdown="1">
+
+`S-` doesn't work with keys that send a different character when <kbd>Shift</kbd>'ed.
+`bind S-n &hellip;`, `bind S-1 &hellip;`, etc don't work.
+Use `bind N &hellip;`, `bind ! &hellip;`, etc instead.
+
+But if you want to bind <kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>&larr;</kbd></kbd>, for example, then it _is_ `bind C-S-Left &hellip;`.
+
+<kbd>Shift</kbd>'d keys also don't work with <kbd>Ctrl</kbd> because <kbd>Ctrl</kbd>-modified keys are case-insensitive in terminals.
+So while you can do `bind C-N &hellip;` the binding will be triggered by either <kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>n</kbd></kbd>
+or just <kbd><kbd>Ctrl</kbd> + <kbd>n</kbd></kbd>.
+
+</div>
+
 Every keybinding lives in a **key table**. There are three built-in key tables:
 
 1. `prefix`: Keys in this table must be pressed after the prefix <kbd><kbd>Ctrl</kbd> + <kbd>b</kbd></kbd> to trigger the binding. This is the table that the
