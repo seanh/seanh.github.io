@@ -30,7 +30,7 @@ To remove the key binding:
 
     unbind C-t
 
-The `C-` stands for <kbd>Control</kbd>. There's also `S-` for <kbd>Shift</kbd> and `M-` for <kbd>Alt</kbd>, e.g. `bind M-t new-window`, `bind -n C-S-Left swap-window -t +1`. There are several special key names for use in
+The `C-` stands for <kbd>Control</kbd>. There's also `S-` for <kbd>Shift</kbd> and `M-` for <kbd>Alt</kbd>, e.g. `bind M-t new-window`, `bind -n M-S-Left swap-window -t +1`. There are several special key names for use in
 `bind` commands, including: `Up`, `Down`, `Left`, `Right`, `BSpace`, `Delete`, `End`, `Enter`, `Escape`, `F1` ... `F12`, `Home`, `Insert`, `PageDown` or `PgDn`,
 `PageUp` or `PgUp`, `Space` and `Tab`.
 
@@ -40,7 +40,7 @@ The `C-` stands for <kbd>Control</kbd>. There's also `S-` for <kbd>Shift</kbd> a
 `bind S-n ...`, `bind S-1 ...`, etc don't work.
 Use `bind N ...`, `bind ! ...`, etc instead.
 
-But if you want to bind <kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>&larr;</kbd></kbd>, for example, then it _is_ `bind C-S-Left ...`.
+But if you want to bind <kbd><kbd>Alt</kbd> + <kbd>Shift</kbd> + <kbd>&larr;</kbd></kbd>, for example, then it _is_ `bind M-S-Left ...`.
 
 <kbd>Shift</kbd>'d keys also don't work with <kbd>Ctrl</kbd> because <kbd>Ctrl</kbd>-modified keys are case-insensitive in terminals.
 So while you can do `bind C-N ...` the binding will be triggered by either <kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>n</kbd></kbd>
