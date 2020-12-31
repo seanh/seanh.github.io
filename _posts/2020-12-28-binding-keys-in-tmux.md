@@ -37,14 +37,17 @@ The `C-` stands for <kbd>Control</kbd>. There's also `S-` for <kbd>Shift</kbd> a
 <div class="warning" markdown="1">
 
 `S-` doesn't work with keys that send a different character when <kbd>Shift</kbd>'ed.
-`bind S-n &hellip;`, `bind S-1 &hellip;`, etc don't work.
-Use `bind N &hellip;`, `bind ! &hellip;`, etc instead.
+`bind S-n ...`, `bind S-1 ...`, etc don't work.
+Use `bind N ...`, `bind ! ...`, etc instead.
 
-But if you want to bind <kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>&larr;</kbd></kbd>, for example, then it _is_ `bind C-S-Left &hellip;`.
+But if you want to bind <kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>&larr;</kbd></kbd>, for example, then it _is_ `bind C-S-Left ...`.
 
 <kbd>Shift</kbd>'d keys also don't work with <kbd>Ctrl</kbd> because <kbd>Ctrl</kbd>-modified keys are case-insensitive in terminals.
-So while you can do `bind C-N &hellip;` the binding will be triggered by either <kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>n</kbd></kbd>
+So while you can do `bind C-N ...` the binding will be triggered by either <kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>n</kbd></kbd>
 or just <kbd><kbd>Ctrl</kbd> + <kbd>n</kbd></kbd>.
+
+There are various other modifier key limitations as well, see [Modifier Keys](https://github.com/tmux/tmux/wiki/Modifier-Keys#limitations-of-ctrl-keys)
+on the tmux wiki.
 
 </div>
 
