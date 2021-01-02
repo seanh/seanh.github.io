@@ -72,9 +72,8 @@ Add the snippet below if you also want your tmux tabs to _look_ a bit more like 
 background color, and also highlights the last tab (which you can jump to directly with the `last-window` command) with a grey background:
 
 ```
-set -g status-style "bg=default fg=#ffffff"
-set -g window-status-current-style "bg=default fg=default,reverse"
-set -g window-status-last-style "bg=#444444 fg=#ffffff"
+set -g status-style "bg=default"
+set -g window-status-current-style "bg=default,reverse"
 set -g window-status-separator ''  # No spaces between windows in the status bar.
 set -g window-status-format "#{?window_start_flag,, }#I:#W#{?window_flags,#F, } "
 set -g window-status-current-format "#{?window_start_flag,, }#I:#W#{?window_flags,#F, } "
