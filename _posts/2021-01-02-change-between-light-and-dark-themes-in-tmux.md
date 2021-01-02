@@ -16,9 +16,9 @@ and dark-on-light themes:
 
 ```terminal
 $ # Change from dark to light background.
-$ tmux set -g window-style 'bg=#FFFFFF fg=#171421' && tmux set -g status-style 'bg=#FFFFFF fg=#171421'
+$ tmux set window-style 'bg=#FFFFFF fg=#171421' && tmux set status-style 'bg=#FFFFFF fg=#171421'
 $ # Change from light back to dark background.
-$ tmux set -g window-style 'bg=#171421 fg=#D0CFCC' && tmux set -g status-style 'bg=#171421 fg=#D0CFCC'
+$ tmux set window-style 'bg=#171421 fg=#D0CFCC' && tmux set status-style 'bg=#171421 fg=#D0CFCC'
 ```
 
 Here's a shell script to toggle between light and dark, using a tmux user option to keep track of which theme is currently active:
@@ -30,13 +30,13 @@ set -e
 # This assumes that your terminal starts out in dark mode.
 # If your terminal has a light background by default add
 # `set -g @light_mode true` to your `~/.tmux.conf` file.
-if [ "$(tmux show -gv @light_mode)" = true ]
+if [ "$(tmux show -v @light_mode)" = true ]
 then
-  tmux set -g window-style 'bg=#171421 fg=#D0CFCC'
-  tmux set -g @light_mode false
+  tmux set window-style 'bg=#171421 fg=#D0CFCC'
+  tmux set @light_mode false
 else
-  tmux set -g window-style 'bg=#FFFFFF fg=#171421'
-  tmux set -g @light_mode true
+  tmux set window-style 'bg=#FFFFFF fg=#171421'
+  tmux set @light_mode true
 fi
 ```
 
@@ -64,7 +64,7 @@ $ tmux source ~/.tmux.conf
 Now <kbd><kbd><kbd>Ctrl</kbd> + <kbd>b</kbd></kbd> <kbd><kbd>Shift</kbd> + <kbd>t</kbd></kbd></kbd> should toggle between light and dark mode.
 
 You might want to add more lines to the script to change other options like `status-style` (the colour of the status bar) and `pane-border-style`
-(the colour of the pane borders) between light and dark mode. See [the full version of the script](https://github.com/seanh/tmux/blob/67ac5ee97a5ac79ca5115ab2f02f7ed4f41250dd/bin/toggle-theme)
+(the colour of the pane borders) between light and dark mode. See [the full version of the script](https://github.com/seanh/tmux/blob/daaad26efda84866f81560b021d3e8d1289f78c3/bin/toggle-theme)
 in my tmux config for an example.
 
 There's also a `window-active-style` setting that you can use to highlight the active pane by giving it a different background colour than the other panes.
