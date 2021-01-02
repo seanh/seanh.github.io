@@ -16,30 +16,42 @@ Add the snippet below to your `~/.tmux.conf` file to get browser-like keyboard s
 
 <kbd><kbd>Ctrl</kbd> + <kbd>t</kbd></kbd> Open a new tab.
 
-<kbd><kbd>Ctrl</kbd> + <kbd>Page Down</kbd></kbd>, <kbd><kbd>Ctrl</kbd> + <kbd>Page Up</kbd></kbd> Go to the next, previous tab.  
+<kbd><kbd>Ctrl</kbd> + <kbd>Page Down</kbd></kbd>, <kbd><kbd>Ctrl</kbd> + <kbd>Page Up</kbd></kbd> Go to the next, previous tab.
+
+<div class="note" markdown="1">
 In browsers <kbd><kbd>Ctrl</kbd> + <kbd>Tab</kbd></kbd> and <kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Tab</kbd></kbd> also work, but I don't think you can
 bind `C-Tab` and`C-S-Tab` in tmux.
+</div>
 
 <kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>&larr;</kbd></kbd>, <kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>&rarr;</kbd></kbd> Move the current tab left,
-right (swapping it with the left or right adjacent tab).  
+right (swapping it with the left or right adjacent tab).
+
+<div class="note" markdown="1">
 In browsers this is <kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Page Up</kbd></kbd> and
 <kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Page Down</kbd></kbd> but I don't think you can bind `C-S-PgUp` and `C-S-PgDn` in tmux.
+</div>
 
 <kbd><kbd>Alt</kbd> + <kbd>1</kbd> &hellip; <kbd>8</kbd></kbd> Jump to tab 1 ... 8.
 
 <kbd><kbd>Alt</kbd> + <kbd>9</kbd></kbd> Jump to the rightmost tab.
 
-<kbd><kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>w</kbd></kbd> Close the current tab.  
+<kbd><kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>w</kbd></kbd> Close the current tab.
+
+<div class="note" markdown="1">
 In browsers this is just <kbd><kbd>Ctrl</kbd> + <kbd>w</kbd></kbd> but
 <kbd><kbd>Ctrl</kbd> + <kbd>w</kbd></kbd> is often used by terminal apps (for example vim uses it for switching between windows).
 GNOME Terminal's uses <kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>w</kbd></kbd> but you can't bind <kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd></kbd> in an app 
 like tmux that runs _inside_ a terminal emulator: Ctrl-modified keys are case insensitive. You can do `bind -n C-W ...` in tmux but the binding will be triggered
 by either <kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>w</kbd></kbd> or just <kbd><kbd>Ctrl</kbd> + <kbd>w</kbd></kbd>
+</div>
 
 <kbd><kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>q</kbd></kbd> Ask for confirmation before closing all tabs and killing the current tmux session.
+
+<div class="note" markdown="1">
 Browsers use <kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>w</kbd></kbd> to close the current window and all its tabs and GNOME Terminal (which already uses
 <kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>w</kbd></kbd> to close a single tab) uses <kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>q</kbd></kbd> to close
 the whole window. You can't bind <kbd><kbd>Ctrl</kbd> + <kbd>Shift</kbd></kbd> in tmux so I've used <kbd><kbd>Ctrl</kbd> + <kbd>Alt</kbd></kbd> instead.
+</div>
 
 <kbd>F11</kbd> Toggle the current pane between zoomed (occupying the whole window and hiding all other panes) and unzoomed (normal).
 
@@ -69,7 +81,7 @@ Appearance
 ----------
 
 Add the snippet below if you also want your tmux tabs to _look_ a bit more like browser tabs. It makes the current tab stand out a lot more by having a different
-background color, and also highlights the last tab (which you can jump to directly with the `last-window` command) with a grey background:
+background color:
 
 ```
 set -g status-style "bg=default"
