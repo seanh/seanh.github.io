@@ -11,38 +11,43 @@ How to toggle between light-background and dark-background themes in tmux.
 
 <img src="/assets/videos/tmux-toggle-theme.gif">
 
-tmux's `window-style` setting changes the default background and foreground colours for panes, and you can use it to toggle your terminal between light-on-dark
+tmux's `window-style` setting changes the default foreground and background colours for windows, and you can use it to toggle your terminal between light-on-dark
 and dark-on-light themes:
 
 ```terminal
-$ # Change from dark to light background.
-$ tmux set -g window-style 'bg=#FFFFFF fg=#171421' && tmux set -g status-style 'bg=#FFFFFF fg=#171421'
-$ # Change from light back to dark background.
-$ tmux set -g window-style 'bg=#171421 fg=#D0CFCC' && tmux set -g status-style 'bg=#171421 fg=#D0CFCC'
+$ # Change the current window (all panes) to light background.
+$ tmux set window-style 'fg=#171421,bg=#ffffff'
+$ # Change back to dark background.
+$ tmux set window-style 'fg=#d0cfcc,bg=#171421'
 ```
 
-Here's a shell script to toggle between light and dark, using a tmux user option to keep track of which theme is currently active:
+Here's a shell script to toggle between light and dark:
 
 ```sh
 #!/usr/bin/env sh
+#
+# Toggle the current window (all panes) between light and dark themes.
 set -e
 
-# This assumes that your terminal starts out in dark mode.
-# If your terminal has a light background by default add
-# `set -g @light_mode true` to your `~/.tmux.conf` file.
-if [ "$(tmux show -gv @light_mode)" = true ]
-then
-  tmux set -g window-style 'bg=#171421 fg=#D0CFCC'
-  tmux set -g @light_mode false
-else
-  tmux set -g window-style 'bg=#FFFFFF fg=#171421'
-  tmux set -g @light_mode true
-fi
+default_window_style='fg=#d0cfcc,bg=#171421'
+alternate_window_style='fg=#171421,bg=#ffffff'
+current_window_style=$(tmux show -Av window-style)
+
+case $current_window_style in
+    $default_window_style|'default')
+        # Change to the alternate window style.
+        tmux set window-style $alternate_window_style
+        ;;
+    *)
+        # Change back to the default window style.
+        tmux set window-style $default_window_style
+        ;;
+esac
 ```
 
 Save this script as `~/.tmux/bin/toggle-theme` and mark it executable
 (`chmod u+x ~/.tmux/bin/toggle-theme`) and you can toggle between dark and
-light mode with a shell command:
+light mode with a single command:
 
 ```terminal
 $ ~/.tmux/bin/toggle-theme
@@ -61,11 +66,31 @@ Reload the file:
 $ tmux source ~/.tmux.conf
 ```
 
-Now <kbd><kbd><kbd>Ctrl</kbd> + <kbd>b</kbd></kbd> <kbd><kbd>Shift</kbd> + <kbd>t</kbd></kbd></kbd> should toggle between light and dark mode.
+Now <kbd><kbd><kbd>Ctrl</kbd> + <kbd>b</kbd></kbd> <kbd><kbd>Shift</kbd> + <kbd>t</kbd></kbd></kbd> toggles between light and dark mode.
 
-You might want to add more lines to the script to change other options like `status-style` (the colour of the status bar) and `pane-border-style`
-(the colour of the pane borders) between light and dark mode. See [the full version of the script](https://github.com/seanh/tmux/blob/67ac5ee97a5ac79ca5115ab2f02f7ed4f41250dd/bin/toggle-theme)
+You might want to add more lines to the script to change other options like `pane-border-style` and `pane-active-border-style`
+(the colours of the pane borders) between light and dark mode. See [the full version of the script](https://github.com/seanh/tmux/blob/master/bin/toggle-theme)
 in my tmux config for an example.
+
+The script changes the default foreground and background colours of the **current window** (all panes).
+You'll want your status line colours to be ones that work well against either a dark
+or a light background, since the same session might contain both light and dark windows
+at the same time. I'm using these (in my `~/.tmux.conf`):
+
+```
+set -g status-style 'fg=#d0cfcc,bg=#171421'
+set -g window-status-current-style 'bg=default,reverse'
+```
+
+You can also use `-g` to change the colours of all windows across all sessions or `-p`
+to change the colours of the current pane only:
+
+```terminal
+$ # Change the colours of all windows across all sessions.
+$ tmux set -g window-style 'fg=#171421,bg=#ffffff'
+$ # Change the colours of all the current pane only.
+$ tmux set -p window-style 'fg=#171421,bg=#ffffff'
+```
 
 There's also a `window-active-style` setting that you can use to highlight the active pane by giving it a different background colour than the other panes.
 
