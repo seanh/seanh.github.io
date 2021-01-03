@@ -120,7 +120,7 @@ Each event always needs to be suffixed with one of the target locations `Pane`, 
 
 Mouse button 2 (`MouseDown2`, `MouseUp2`, ...) is the middle mouse button and 3 (`MouseDown3`, `MouseUp3`, ...) is the right button.
 
-The special token `{mouse}` in a mouse event `bind` command resolves to the target-window or target-pane that was clicked on, for when you need the target window
+The special token `{mouse}` or `=` in a mouse event `bind` command resolves to the target-window or target-pane that was clicked on, for when you need the target window
 or pane in the bound command.
 For example `bind -n MouseDown1Pane select-pane -t {mouse}` makes clicking on a pane select that pane.
-`bind -n MouseDown1Status select-window -t {mouse}` makes clicking on a window in the status line select that window.
+`bind -n MouseDown1Status select-window -t =` makes clicking on a window in the status line select that window.
