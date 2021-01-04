@@ -88,7 +88,7 @@ to change the colours of the current pane only:
 ```terminal
 $ # Change the colours of all windows across all sessions.
 $ tmux set -g window-style 'fg=#171421,bg=#ffffff'
-$ # Change the colours of all the current pane only.
+$ # Change the colours of the current pane only.
 $ tmux set -p window-style 'fg=#171421,bg=#ffffff'
 ```
 
