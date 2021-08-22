@@ -57,7 +57,7 @@ Host imap.gmail.com
 User YOUR_USERNAME@gmail.com
 PassCmd "pass mbsync/gmail"
 SSLType IMAPS
-Pipelinedepth 50
+Pipelinedepth 1
 
 IMAPStore gmail-remote
 Account gmail
@@ -74,7 +74,7 @@ Patterns *
 SyncState *
 ```
 
-The `Pipelinedepth 50` is necessary to prevent isync from hitting Gmail's bandwidth quotas and triggering this error message:
+The `Pipelinedepth 1` is necessary to prevent isync from hitting Gmail's bandwidth quotas and triggering this error message:
 
     IMAP error: unexpected BYE response: [OVERQUOTA] Account exceeded command or bandwidth limits.
 
