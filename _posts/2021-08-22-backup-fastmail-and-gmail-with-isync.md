@@ -4,8 +4,8 @@ sitemap: false
 robots: noindex, nofollow
 ---
 
-How to backup Fastmail & Gmail accounts with isync
-==================================================
+How to Backup Your Fastmail & Gmail Accounts Locally with isync
+===============================================================
 
 [isync](https://isync.sourceforge.io/) is a command line application that can synchronize a remote IMAP account (like a Fastmail or Gmail account) with local
 maildirs. This post will show you how to use isync to make a local backup of your Fastmail and Gmail accounts. We're going to be using isync in **read-only mode**:
@@ -146,3 +146,42 @@ $ mbsync -a
 ```
 
 You can re-run the command at any time to update the local copy. You can also download only Fastmail or only Gmail with `mbsync fastmail` or `mbsync gmail`.
+
+### Read the local copy with Mutt
+
+Once you've made a local copy of your email you can read the `~/Mail` folder with a local mail client like Thunderbird or [Mutt](https://mutt.org/).
+
+To install Mutt run:
+
+```shellsession
+$ sudo apt install mutt
+```
+
+You then need to create a `~/.muttrc` file to configure Mutt to open the `~/Mail` dir. Here's a minimal example:
+
+```
+# ~/.muttrc
+set read_only
+set spoolfile=+Fastmail/Inbox
+set mbox=+Fastmail/Archive
+set record=+Fastmail/Sent
+set postponed=+Fastmail/Drafts
+set trash=+Fastmail/Trash
+set header_cache=~/.muttcache
+set message_cachedir=~/.muttcache
+```
+
+The `set read_only` tells Mutt to work in read-only mode (for example Mutt won't let you delete messages).
+Since isync isn't going to sync any changes to the local copy up to your Fastmail and Gmail accounts it makes sense to tell Mutt not to make any changes.
+
+The `header_cache` and `message_cachedir` settings tell Mutt to use a `~/.muttcache` dir to speed up re-opening and searching large folders.
+You should create this directory before launching Mutt: `mkdir ~/.muttcache`.
+
+The rest of the settings just tell Mutt where to find your inbox, archive, drafts, sent, and trash folders.
+For example Mutt will open `~/Mail/Fastmail/Inbox` by default when you launch it.
+
+Now to launch mutt just run:
+
+```shellsession
+$ mutt
+```
