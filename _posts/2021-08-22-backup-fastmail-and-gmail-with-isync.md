@@ -4,8 +4,8 @@ sitemap: false
 robots: noindex, nofollow
 ---
 
-How to backup your email from Fastmail & Gmail with isync
-=========================================================
+How to backup Fastmail & Gmail accounts with isync
+==================================================
 
 [isync](https://isync.sourceforge.io/) is a command line application that can synchronize a remote IMAP account (like a Fastmail or Gmail account) with local
 maildirs. This post will show you how to use isync to make a local backup of your Fastmail and Gmail accounts. We're going to be using isync in read-only mode:
