@@ -110,9 +110,17 @@ We're going to use [pass](https://www.passwordstore.org/) to store the Fastmail 
    $ pass init <GPG_KEY_ID>
    ```
    
-   If you're not sure what the GPG key's ID is you can run `gpg --list-secret-keys` ti list them all.
+   If you're not sure what the GPG key's ID is you can run `gpg --list-secret-keys` to list your keys.
 
-4. Add the Fastmail app password to `pass`:
+4. You can now optionally run:
+
+   ```shellsession
+   $ pass git init
+   ```
+   
+   If you have [Git](https://git-scm.com/) installed and want `pass` to automatically keep history in a git repo.
+
+5. Add the Fastmail app password to `pass`:
 
    ```shellsession
    $ pass insert mbsync/fastmail
@@ -120,7 +128,7 @@ We're going to use [pass](https://www.passwordstore.org/) to store the Fastmail 
    
    Paste in the password when asked.
 
-5. Add the Gmail app password to `pass`:
+6. Add the Gmail app password to `pass`:
 
    ```shellsession
    $ pass insert mbsync/gmail
@@ -180,7 +188,7 @@ You should create this directory before launching Mutt: `mkdir ~/.muttcache`.
 The rest of the settings just tell Mutt where to find your inbox, archive, drafts, sent, and trash folders.
 For example Mutt will open `~/Mail/Fastmail/Inbox` by default when you launch it.
 
-Now to launch mutt just run:
+To launch mutt just run:
 
 ```shellsession
 $ mutt
