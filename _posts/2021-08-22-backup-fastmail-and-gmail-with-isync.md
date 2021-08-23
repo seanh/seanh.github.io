@@ -26,6 +26,8 @@ You need to create a `~/.mbsyncrc` file before isync will work (although the pro
 Here's an `~/.mbsyncrc` to backup a Fastmail account and a Gmail account to a local `~/Mail` folder:
 
 ```
+# ~/.mbsyncrc
+
 CopyArrivalDate yes  # Don't mess up message timestamps when moving messages between folders.
 Sync Pull            # Download changes only. Don't sync local changes up to the server.
 Create Slave         # Create new folders in the local copy only.
@@ -165,16 +167,21 @@ To install Mutt run:
 $ sudo apt install mutt
 ```
 
-You then need to create a `~/.muttrc` file to configure Mutt to open the `~/Mail` dir. Here's a minimal example:
+You can now just run `mutt -Rf ~/Mail/Fastmail/Inbox/` to open your Fastmail inbox in read-only mode.
+But it can be convenient to create a `~/.muttrc` file to avoid having to pass arguments on the command line.
+Here's a minimal example:
 
 ```
 # ~/.muttrc
+
 set read_only
+
 set spoolfile=+Fastmail/Inbox
 set mbox=+Fastmail/Archive
 set record=+Fastmail/Sent
 set postponed=+Fastmail/Drafts
 set trash=+Fastmail/Trash
+
 set header_cache=~/.muttcache
 set message_cachedir=~/.muttcache
 ```
@@ -188,7 +195,7 @@ You should create this directory before launching Mutt: `mkdir ~/.muttcache`.
 The rest of the settings just tell Mutt where to find your inbox, archive, drafts, sent, and trash folders.
 For example Mutt will open `~/Mail/Fastmail/Inbox` by default when you launch it.
 
-To launch mutt just run:
+Now you can just launch `mutt` without command line arguments:
 
 ```shellsession
 $ mutt
