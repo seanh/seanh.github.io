@@ -201,7 +201,7 @@ set message_cachedir=~/.muttcache
 ```
 
 The `set read_only` tells Mutt to work in read-only mode (for example Mutt won't let you delete messages).
-Since isync isn't going to sync any changes to the local copy up to your Fastmail and Gmail accounts it makes sense to tell Mutt not to make any changes.
+Since isync isn't going to sync any changes up to your Fastmail and Gmail accounts it makes sense to tell Mutt not to make any changes to the local copy.
 
 The `header_cache` and `message_cachedir` settings tell Mutt to use a `~/.muttcache` dir to speed up re-opening and searching large folders.
 You should create this directory before launching Mutt: `mkdir ~/.muttcache`.
