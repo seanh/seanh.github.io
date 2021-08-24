@@ -163,6 +163,14 @@ You can re-run the command at any time to update the local copy. You can also do
 
     IMAP error: unexpected BYE response: System Error
 
+You just seem to have to re-run it when this happens. Can take a lot of re-runs to get through the first initial download of all your mail.
+
+Also this:
+
+    Warning: lost track of 39544 pulled message(s)
+    
+Which doesn't seem to be a problem?
+
 ### Read the local copy with Mutt
 
 Once you've made a local copy of your email you can read the `~/Mail` folder with a local mail client like Thunderbird or [Mutt](https://mutt.org/).
