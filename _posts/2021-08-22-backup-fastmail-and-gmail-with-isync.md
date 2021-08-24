@@ -159,6 +159,10 @@ $ mbsync -a
 
 You can re-run the command at any time to update the local copy. You can also download only Fastmail or only Gmail with `mbsync fastmail` or `mbsync gmail`.
 
+#### Gmail errors from `mbsync`
+
+    IMAP error: unexpected BYE response: System Error
+
 ### Read the local copy with Mutt
 
 Once you've made a local copy of your email you can read the `~/Mail` folder with a local mail client like Thunderbird or [Mutt](https://mutt.org/).
