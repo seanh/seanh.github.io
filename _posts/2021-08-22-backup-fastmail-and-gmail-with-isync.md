@@ -1,18 +1,26 @@
----
-draft: true
-sitemap: false
-robots: noindex, nofollow
----
-
-How to Backup Your Fastmail & Gmail Accounts Locally with isync
-===============================================================
+How to Backup Your Fastmail & Gmail Accounts with isync
+=======================================================
 
 [isync](https://isync.sourceforge.io/) is a command line application that can synchronize a remote IMAP account (like a Fastmail or Gmail account) with local
-maildirs. This post will show you how to use isync to make a local backup of your Fastmail and Gmail accounts. We're going to be using isync in **read-only mode**:
-changes will be synced from your Fastmail and Gmail accounts to your local filesystem but not the other way round, so there's no chance of isync accidentally deleting
-mail from your Fastmail or Gmail account if something goes wrong with the local copy.
+maildirs. This post will show you how to use isync to make a local backup of your Fastmail and Gmail accounts.
 
 isync is quick to install and configure and works great.
+
+<div class="note" markdown="1">
+The project is called isync but the actual command line application is `mbsync`
+because massive changes were once made to the user interface.
+</div>
+
+isync can do two-way synchronization of your IMAP and local maildirs.
+It even allows fine-grained control of which types of changes get synced
+(new messages and folders, deletions and flag changes)
+in which direction(s) and on a per-folder basis.
+See [`man mbsync`](https://isync.sourceforge.io/mbsync.html) for the details and for an explanation of the
+"account", "store" and "channel" concepts that you'll see in the `.mbsyncrc` file below.
+
+In this post we're going to be using isync to make a **read-only backup** of your IMAP account:
+changes will be synced from your Fastmail and Gmail accounts to your local filesystem but not the other way round, so there's no chance of isync accidentally deleting
+mail from your Fastmail or Gmail account if something goes wrong with the local copy.
 
 ### Install isync
 
@@ -24,17 +32,17 @@ $ sudo apt install isync
 
 ### Configure isync
 
-You need to create a `~/.mbsyncrc` file before isync will work (although the project is called "isync" the actual command line program is `mbsync`).
+You need to create a `~/.mbsyncrc` file before isync will work.
 Here's an `~/.mbsyncrc` to backup a Fastmail account and a Gmail account to a local `~/Mail` folder:
 
 ```
 # ~/.mbsyncrc
 
-CopyArrivalDate yes  # Don't mess up message timestamps when moving messages between folders.
-Sync Pull            # Download changes only. Don't sync local changes up to the server.
-Create Slave         # Create new folders in the local copy only.
-Remove Slave         # Remove deleted folders from the local copy only.
-Expunge Slave        # Expunge deleted messages from the local copy only.
+CopyArrivalDate yes  # Don't mess up message timestamps when moving them between folders.
+Sync Pull            # Download changes only, don't sync local changes up to the server.
+Create Slave         # Automatically create new folders in the local copy.
+Remove Slave         # Automatically remove deleted folders from the local copy.
+Expunge Slave        # Expunge deleted messages from the local copy.
 
 IMAPAccount fastmail
 Host imap.fastmail.com
@@ -78,19 +86,41 @@ Patterns *
 SyncState *
 ```
 
-The `Pipelinedepth 1` is necessary to prevent isync from hitting Gmail's bandwidth quotas and triggering this error message:
+<div class="note" markdown="1">
+The `Pipelinedepth 1` slows isync down by preventing it from having multiple
+IMAP commands in flight at once.  This is necessary to prevent isync from
+hitting Gmail's bandwidth quotas and triggering this error message:
 
     IMAP error: unexpected BYE response: [OVERQUOTA] Account exceeded command or bandwidth limits.
 
+I found that I only needed this when downloading large amount of email at once,
+such as during the initial download of my whole Gmail account. I was able to
+remove the `Pipelinedepth 1` after that and it has been working fine. Removing
+`Pipelinedepth 1` doesn't seem to make `mbsync gmail` run any faster for me
+though: without knowing how isync works internally I'm guessing this might be
+because I have a lot of maildirs but not much new mail to download in any one
+maildir.
+</div>
+
 ### Create Fastmail and Gmail app passwords
 
-You need to create a Fastmail app password for isync to use to access to your Fastmail account.
-In Fastmail's web interface go to <https://www.fastmail.com/settings/security/devicekeys>, unlock the interface, and click <samp>New App Password</samp>.
+You need to create a Fastmail app password for isync to usaccess to your account with.
+In Fastmail's web interface go to [/settings/security/devicekeys/](https://www.fastmail.com/settings/security/devicekeys/), unlock the interface, and click <samp>New App Password</samp>.
 You can create an app password with IMAP access only and with read-only access as an extra protection against isync accidentally deleting your mail.
 See [Fastmail's docs](https://www.fastmail.com/help/clients/apppassword.html) for more on creating app passwords.
 
-For Gmail you have to go to <https://myaccount.google.com/security> and click on <samp>App passwords</samp> to create one.
+<figure markdown="1">
+  ![Creating an app password in Fastmail.]({{ "/assets/images/fastmail-isync-app-password.png" | relative_url }} "Creating an app password in Fastmail.")
+  <figcaption>Creating an app password in Fastmail.</figcaption>
+</figure>
+
+For Gmail you have to go to [myaccount.google.com/security/](https://myaccount.google.com/security/) and click on <samp>App passwords</samp> to create one.
 See [Google's docs on app passwords](https://support.google.com/accounts/answer/185833).
+
+<figure markdown="1">
+  ![Creating an app password in Gmail.]({{ "/assets/images/gmail-isync-app-password.png" | relative_url }} "Creating an app password in Gmail.")
+  <figcaption>Creating an app password in Gmail.</figcaption>
+</figure>
 
 ### Install `pass` and add the app passwords to it
 
@@ -114,7 +144,7 @@ We're going to use [pass](https://www.passwordstore.org/) to store the Fastmail 
    $ pass init <GPG_KEY_ID>
    ```
    
-   If you're not sure what the GPG key's ID is you can run `gpg --list-secret-keys` to list your keys.
+   If you're not sure what the GPG key's ID is you can run `gpg --list-secret-keys` see.
 
 4. You can now optionally run:
 
@@ -143,7 +173,7 @@ to get the passwords.
 
 ### Create the empty local maildirs
 
-`mbsync` won't create these so you have to do it manually:
+isync won't create these so you have to do it manually:
 
 ```shellsession
 $ mkdir -p ~/Mail/Fastmail ~/Mail/Gmail
@@ -159,17 +189,26 @@ $ mbsync -a
 
 You can re-run the command at any time to update the local copy. You can also download only Fastmail or only Gmail with `mbsync fastmail` or `mbsync gmail`.
 
-#### Gmail errors from `mbsync`
+#### Errors from Gmail
+
+I got a couple of errors during the initial big download of my Gmail account.
+This kept happening:
 
     IMAP error: unexpected BYE response: System Error
 
-You just seem to have to re-run it when this happens. Can take a lot of re-runs to get through the first initial download of all your mail.
+If you restart the `mbsync` command it'll continue for a while longer and then the error will happen again,
+so you can just keep restarting it and eventually it'll finish the download.
 
-Also this:
+Having isync crash and restarting it seems to produce this warning as well:
 
     Warning: lost track of 39544 pulled message(s)
-    
-Which doesn't seem to be a problem?
+
+I was [told on the isync mailing list](https://sourceforge.net/p/isync/mailman/message/35458368/) (back in 2016)
+that this most likely doesn't mean anything and at worst could mean some
+duplicate mails.
+
+After getting through the initial download I haven't had any of these errors
+from Gmail again. I never got the errors at all with Fastmail.
 
 ### Read the local copy with Mutt
 
@@ -204,7 +243,7 @@ The `set read_only` tells Mutt to work in read-only mode (for example Mutt won't
 Since isync isn't going to sync any changes up to your Fastmail and Gmail accounts it makes sense to tell Mutt not to make any changes to the local copy.
 
 The `header_cache` and `message_cachedir` settings tell Mutt to use a `~/.muttcache` dir to speed up re-opening and searching large folders.
-You should create this directory before launching Mutt: `mkdir ~/.muttcache`.
+You should create this directory before launching Mutt for the first time: `mkdir ~/.muttcache`.
 
 The rest of the settings just tell Mutt where to find your inbox, archive, drafts, sent, and trash folders.
 For example Mutt will open `~/Mail/Fastmail/Inbox` by default when you launch it.
