@@ -18,7 +18,7 @@ in which direction(s) and on a per-folder basis.
 See [`man mbsync`](https://isync.sourceforge.io/mbsync.html) for the details and for an explanation of the
 "account", "store" and "channel" concepts that you'll see in the `.mbsyncrc` file below.
 
-In this post we're going to be using isync to make a **read-only backup** of your IMAP account:
+In this post we're going to be using isync to make a **read-only backup** of your IMAP accounts:
 changes will be synced from your Fastmail and Gmail accounts to your local filesystem but not the other way round, so there's no chance of isync accidentally deleting
 mail from your Fastmail or Gmail account if something goes wrong with the local copy.
 
@@ -32,7 +32,7 @@ $ sudo apt install isync
 
 ### Configure isync
 
-You need to create a `~/.mbsyncrc` file before isync will work.
+You need to create an `~/.mbsyncrc` file before isync will work.
 Here's an `~/.mbsyncrc` to backup a Fastmail account and a Gmail account to a local `~/Mail` folder:
 
 ```
@@ -93,7 +93,7 @@ hitting Gmail's bandwidth quotas and triggering this error message:
 
     IMAP error: unexpected BYE response: [OVERQUOTA] Account exceeded command or bandwidth limits.
 
-I found that I only needed this when downloading large amount of email at once,
+I found that I only needed this when downloading a large amount of email at once,
 such as during the initial download of my whole Gmail account. I was able to
 remove the `Pipelinedepth 1` after that and it has been working fine. Removing
 `Pipelinedepth 1` doesn't seem to make `mbsync gmail` run any faster for me
@@ -104,7 +104,7 @@ maildir.
 
 ### Create Fastmail and Gmail app passwords
 
-You need to create a Fastmail app password for isync to usaccess to your account with.
+You need to create a Fastmail app password for isync to access to your account with.
 In Fastmail's web interface go to [/settings/security/devicekeys/](https://www.fastmail.com/settings/security/devicekeys/), unlock the interface, and click <samp>New App Password</samp>.
 You can create an app password with IMAP access only and with read-only access as an extra protection against isync accidentally deleting your mail.
 See [Fastmail's docs](https://www.fastmail.com/help/clients/apppassword.html) for more on creating app passwords.
@@ -144,7 +144,7 @@ We're going to use [pass](https://www.passwordstore.org/) to store the Fastmail 
    $ pass init <GPG_KEY_ID>
    ```
    
-   If you're not sure what the GPG key's ID is you can run `gpg --list-secret-keys` see.
+   If you're not sure what the GPG key's ID is you can run `gpg --list-secret-keys` to see.
 
 4. You can now optionally run:
 
