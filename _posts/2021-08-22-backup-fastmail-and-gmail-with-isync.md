@@ -235,6 +235,8 @@ set record=+Fastmail/Sent
 
 set header_cache=~/.muttcache
 set message_cachedir=~/.muttcache
+
+macro index,pager G "!mbsync -a\n"
 ```
 
 The `set read_only` tells Mutt to work in read-only mode (for example Mutt won't let you delete messages).
@@ -243,12 +245,14 @@ Since isync isn't going to sync any changes up to your Fastmail and Gmail accoun
 The `header_cache` and `message_cachedir` settings tell Mutt to use a `~/.muttcache` dir to speed up re-opening and searching large folders.
 You should create this directory before launching Mutt for the first time: `mkdir ~/.muttcache`.
 
-The rest of the settings just tell Mutt where to find your inbox, archive, and drafts folders.
+The `spoolfile`, `mbox` and `record` settings tell Mutt where to find your inbox, archive, and drafts folders.
 For example Mutt will open `~/Mail/Fastmail/Inbox` by default when you launch it. Of course Mutt isn't going
 to be adding any messages to the archive or sent folders when in read-only mode but you can
 still use Mutt's [mailbox shortcuts](https://mutt.org/doc/manual/#shortcuts) for these special folders to
 open them easily. For example you can summon the <samp>Open mailbox</samp> prompt (<kbd>c</kbd>) and enter
 `!`, `>` or `<` to open your inbox, archive folder or sent folder.
+
+Finally the `macro` at the end binds capital <kbd>G</kbd> to run `mbsync -a` from within Mutt.
 
 Now you can just launch `mutt` without command line arguments:
 
