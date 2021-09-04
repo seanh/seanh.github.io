@@ -116,6 +116,8 @@ See [Fastmail's docs](https://www.fastmail.com/help/clients/apppassword.html) fo
 
 For Gmail you have to go to [myaccount.google.com/security/](https://myaccount.google.com/security/) and click on <samp>App passwords</samp> to create one.
 See [Google's docs on app passwords](https://support.google.com/accounts/answer/185833).
+You also need to select **Enable IMAP** in your Gmail settings before isync will work,
+see [Gmail's IMAP docs](https://support.google.com/mail/answer/7126229) for details.
 
 <figure markdown="1">
   ![Creating an app password in Gmail.]({{ "/assets/images/gmail-isync-app-password.png" | relative_url }} "Creating an app password in Gmail.")
