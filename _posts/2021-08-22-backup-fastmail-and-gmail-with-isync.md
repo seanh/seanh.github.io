@@ -267,6 +267,20 @@ duplicate mails.
 After getting through the initial download I haven't had any of these errors
 from Gmail again. I never got the errors at all with Fastmail.
 
+#### Moving folders
+
+Be careful about moving or renaming large folders: isync will re-download all
+of the folder's messages if the folder has been renamed. Also, it won't delete
+the original copy of the folder from the local copy so you'll now have two
+copies of the whole folder.
+
+It does print this warning though:
+
+    Warning: channel fastmail: master isync-devel cannot be opened and slave isync-devel not empty.
+
+Which lets you know that the local copy contains a folder that the remote copy
+doesn't have so you can be reminded to delete the local folder.
+
 ### Read the local copy with Mutt
 
 Once you've made a local copy of your email you can read the `~/Mail` folder with a local mail client like Thunderbird or [Mutt](https://mutt.org/).
