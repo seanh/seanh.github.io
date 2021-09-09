@@ -26,7 +26,7 @@ mail from your Fastmail or Gmail account if something goes wrong with the local 
 
 On Ubuntu it's just:
 
-```shellsession
+```terminal
 $ sudo apt install isync
 ```
 
@@ -130,19 +130,19 @@ We're going to use [pass](https://www.passwordstore.org/) to store the Fastmail 
 
 1. Install `pass`:
 
-   ```shellsession
+   ```terminal
    $ sudo apt install pass
    ```
 
 2. Create a GPG key that'll be used to encrypt the passwords:
 
-   ```shellsession
+   ```terminal
    $ gpg --full-generate-key
    ```
 
 3. Initialize `pass` with the GPG key:
 
-   ```shellsession
+   ```terminal
    $ pass init <GPG_KEY_ID>
    ```
    
@@ -150,7 +150,7 @@ We're going to use [pass](https://www.passwordstore.org/) to store the Fastmail 
 
 4. You can now optionally run:
 
-   ```shellsession
+   ```terminal
    $ pass git init
    ```
    
@@ -158,7 +158,7 @@ We're going to use [pass](https://www.passwordstore.org/) to store the Fastmail 
 
 5. Add the Fastmail app password to `pass`:
 
-   ```shellsession
+   ```terminal
    $ pass insert mbsync/fastmail
    ```
    
@@ -166,7 +166,7 @@ We're going to use [pass](https://www.passwordstore.org/) to store the Fastmail 
 
 6. Add the Gmail app password to `pass`:
 
-   ```shellsession
+   ```terminal
    $ pass insert mbsync/gmail
    ```
 
@@ -177,7 +177,7 @@ to get the passwords.
 
 isync won't create these so you have to do it manually:
 
-```shellsession
+```terminal
 $ mkdir -p ~/Mail/Fastmail ~/Mail/Gmail
 ```
 
@@ -185,7 +185,7 @@ $ mkdir -p ~/Mail/Fastmail ~/Mail/Gmail
 
 Now to download all of your email just run:
 
-```shellsession
+```terminal
 $ mbsync -a
 ```
 
@@ -267,27 +267,13 @@ duplicate mails.
 After getting through the initial download I haven't had any of these errors
 from Gmail again. I never got the errors at all with Fastmail.
 
-#### Moving folders
-
-Be careful about moving or renaming large folders: isync will re-download all
-of the folder's messages if the folder has been renamed. Also, it won't delete
-the original copy of the folder from the local copy so you'll now have two
-copies of the whole folder.
-
-It does print this warning though:
-
-    Warning: channel fastmail: master isync-devel cannot be opened and slave isync-devel not empty.
-
-Which lets you know that the local copy contains a folder that the remote copy
-doesn't have so you can be reminded to delete the local folder.
-
 ### Read the local copy with Mutt
 
 Once you've made a local copy of your email you can read the `~/Mail` folder with a local mail client like Thunderbird or [Mutt](https://mutt.org/).
 
 To install Mutt run:
 
-```shellsession
+```terminal
 $ sudo apt install mutt
 ```
 
@@ -327,6 +313,6 @@ Finally the `macro` at the end binds capital <kbd>G</kbd> to run `mbsync -a` fro
 
 Now you can just launch `mutt` without command line arguments:
 
-```shellsession
+```terminal
 $ mutt
 ```
