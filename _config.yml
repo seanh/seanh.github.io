@@ -1,6 +1,6 @@
 author: Sean Hammond
 title: seanh.cc
-remote_theme: seanh/jekyll-theme-oatcake@0.1.22
+remote_theme: seanh/jekyll-theme-oatcake@0.1.23
 github_ribbon: false
 permalink: pretty
 plugins:
