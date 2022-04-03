@@ -32,5 +32,5 @@ To install and run this site locally:
    bundle exec jekyll serve
    ```
 
-You should run `bundle-update` now and then to keep up to date with the GitHub
+You should run `bundle update` now and then to keep up to date with the GitHub
 Pages gem.
