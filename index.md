@@ -4,7 +4,7 @@ redirect_from:
   - /about/
 ---
 
-<img src="assets/images/zenek.png" style="box-shadow:none;">
+<img src="assets/images/zenek.png" style="box-shadow:none; padding-bottom: 12px;">
 
 **Hi 👋, I'm Sean.**
 I'm a developer and future Portuguese Water Dog owner.
