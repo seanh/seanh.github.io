@@ -70,6 +70,7 @@ User YOUR_USERNAME@gmail.com
 PassCmd "pass mbsync/gmail"
 SSLType IMAPS
 Pipelinedepth 1
+Timeout 60
 
 IMAPStore gmail-remote
 Account gmail
@@ -100,6 +101,12 @@ remove the `Pipelinedepth 1` after that and it has been working fine. Removing
 though: without knowing how isync works internally I'm guessing this might be
 because I have a lot of maildirs but not much new mail to download in any one
 maildir.
+</div>
+
+<div class="note" markdown="1">
+The `Timeout 60` increases isync's IMAP connect and data timeouts from the
+default of 20s. I found that this got rid of some timeout errors I was seeing
+from Gmail.
 </div>
 
 ### Create Fastmail and Gmail app passwords
