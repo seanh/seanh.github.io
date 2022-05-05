@@ -40,9 +40,9 @@ Here's an `~/.mbsyncrc` to backup a Fastmail account and a Gmail account to a lo
 
 CopyArrivalDate yes  # Don't mess up message timestamps when moving them between folders.
 Sync Pull            # Download changes only, don't sync local changes up to the server.
-Create Slave         # Automatically create new folders in the local copy.
-Remove Slave         # Automatically remove deleted folders from the local copy.
-Expunge Slave        # Expunge deleted messages from the local copy.
+Create Near          # Automatically create new folders in the local copy.
+Remove Near          # Automatically remove deleted folders from the local copy.
+Expunge Near         # Expunge deleted messages from the local copy.
 
 IMAPAccount fastmail
 Host imap.fastmail.com
@@ -59,8 +59,8 @@ Inbox ~/Mail/Fastmail/Inbox
 SubFolders Verbatim
 
 Channel fastmail
-Master :fastmail-remote:
-Slave :fastmail-local:
+Far :fastmail-remote:
+Near :fastmail-local:
 Patterns *
 SyncState *
 
@@ -80,8 +80,8 @@ Inbox ~/Mail/Gmail/Inbox
 SubFolders Verbatim
 
 Channel gmail
-Master :gmail-remote:
-Slave :gmail-local:
+Far :gmail-remote:
+Near :gmail-local:
 Patterns *
 SyncState *
 ```
@@ -194,7 +194,7 @@ You can also download only Fastmail or only Gmail with `mbsync fastmail` or `mbs
 
 The command's output looks like this:
 
-    C: 0/2  B: 5/173  M: +0/0 *0/0 #0/0  S: +23/422 *0/0 #0/0
+    C: 0/2  B: 5/173  F: +0/0 *0/0 #0/0  N: +23/422 *0/0 #0/0
 
 * The `C: 0/2` is the number of channels that it has _finished_ syncing.
   (So `0/2` means it has _finished_ `0` channels so far, so it's currently syncing the first channel.)
@@ -202,13 +202,13 @@ The command's output looks like this:
 * The `B: 5/173` means that it has so far finished syncing `5` out of `173` mailboxes.
   (`173` is the count of all mailboxes to be synced, across all channels.)
 
-* The `M: +0/0 *0/0 #0/0` counts the number of messages synced up to the master copy:
+* The `F: +0/0 *0/0 #0/0` counts the number of messages synced up to the far copy:
   `+0/0` is the number of messages added,
   `*0/0` is the number of messages whose flags have been updated, and
   `#0/0` is the number of messages deleted.
   These are all `0/0` because we're downloading changes only, we're not syncing changes up to the server.
 
-* `S: +23/422 *0/0 #0/0` is the same three counts of message changes synced down to the slave copy:
+* `N: +23/422 *0/0 #0/0` is the same three counts of message changes synced down to the local copy:
   `+23/422` messages added,
   `*0/0` messages with flags updated, and
   `#0/0` messages deleted so far.
@@ -220,28 +220,25 @@ displays `B: 0/173`.
 When it finishes syncing those 173 mailboxes isync starts syncing the next
 channel and connects to the next IMAP account and finds out about the number
 of mailboxes in _that_ account so the `B` section changes to `B: 173/502`.
-The `M` and `S` totals behave similarly as mailboxes are opened and new
+The `F` and `N` totals behave similarly as mailboxes are opened and new
 messages to be synced are discovered.
-
-In newer versions of isync (1.4 or newer) the `M:` and `S:` are replaced with
-`F:` (far) and `N:` (near) because master/slave terminology has been removed.
 
 If you run `mbsync` with `--verbose` it'll print more detailed information
 about what's happening. As well as log messages about connecting and logging in
 to IMAP accounts it also prints several lines for each mailbox synced.
 For example this shows it creating the `lists/isync-devel` folder in the local
-("slave") maildir and downloading 422 messages into it:
+("near") maildir and downloading 422 messages into it:
 
-    Opening master box lists/isync-devel...
-    Opening slave box lists/isync-devel...
-    Creating slave lists/isync-devel...
+    Opening far side box lists/isync-devel...
+    Opening near side box lists/isync-devel...
+    Creating near side box lists/isync-devel...
     Maildir notice: no UIDVALIDITY, creating new.
-    Loading master...
-    Loading slave...
-    slave: 0 messages, 0 recent
-    master: 422 messages, 0 recent
+    Loading far side box...
+    Loading near side box...
+    near side: 0 messages, 0 recent
+    far side: 422 messages, 0 recent
     Synchronizing...
-    C: 0/1  B: 16/176  M: +0/0 *0/0 #0/0  S: +422/422 *0/0 #0/0
+    C: 0/1  B: 16/176  F: +0/0 *0/0 #0/0  N: +422/422 *0/0 #0/0
 
 This gives you detailed information about what was synced up and down for each folder.
 But if you have a lot of folders it produces a lot of output which can hide any errors or warnings.
