@@ -61,7 +61,6 @@ tooling needed to implement our GitHub Actions-based release process:
     python-packaging-demo/
       pyproject.toml
       setup.cfg
-      .gitignore
       src/
         python_packaging_demo/
           __init__.py
