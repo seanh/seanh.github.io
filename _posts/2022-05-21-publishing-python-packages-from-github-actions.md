@@ -335,7 +335,7 @@ GitHub Actions:
 
 ```yml
 name: Create a new patch release
-on: [workflow_dispatch]
+on: workflow_dispatch
 jobs:
   github:
     runs-on: ubuntu-latest
@@ -350,7 +350,7 @@ jobs:
 
 Notes:
 
-* The `on: [workflow_dispatch]` means that this workflow never runs
+* The `on: workflow_dispatch` means that this workflow never runs
   automatically, it can only be triggered by the <kbd>Run workflow</kbd>
   button:
 
