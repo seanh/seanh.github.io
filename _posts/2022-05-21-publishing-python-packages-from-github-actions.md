@@ -174,7 +174,7 @@ jobs:
           fetch-depth: 0
       - run: python3 -m pip install --upgrade build && python3 -m build
       - name: Publish package
-        uses: pypa/gh-action-pypi-publish@v1.5.0
+        uses: pypa/gh-action-pypi-publish@release/v1
         with:
           password: {% raw %}${{ secrets.PYPI_API_TOKEN }}{% endraw %}
 ```
