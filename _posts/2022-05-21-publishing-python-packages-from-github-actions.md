@@ -94,8 +94,9 @@ I'm gonna skip over [`setup.cfg`](https://github.com/seanh/gha-python-packaging-
 because it's just a normal `setup.cfg` file, it doesn't contain anything relevant to our GitHub Actions-based
 packaging solution. The demo package's `setup.cfg` is exactly like
 [the `setup.cfg` from the Python Packaging User Guide's packaging tutorial](https://packaging.python.org/en/latest/tutorials/packaging-projects/#configuring-metadata)
-except that I added a console script entry point (which we'll be using later to
-demonstrate [how to implement `--version`](#the---version-command)).
+except that I added a changelog link (shows on PyPI and links to the project's
+GitHub releases page) and a console script entry point (which we'll be using
+later to demonstrate [how to implement `--version`](#the---version-command)).
 
 One thing worth saying is that your package's name needs to be unique across all of PyPI,
 so visit [pypi.org/project/YOUR_PROJECT_NAME/](https://pypi.org/project/YOUR_PROJECT_NAME/)
