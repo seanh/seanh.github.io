@@ -1,4 +1,4 @@
-# seanh.github.io-pelican
+# seanh.github.io
 
 ## Hacking
 
@@ -24,8 +24,8 @@ will install them automatically as needed.
 Now to clone the repo and start the dev server on <http://127.0.0.1:8000> run:
 
 ```terminal
-git clone https://github.com/seanh/seanh.github.io-pelican.git
-cd seanh.github.io-pelican
+git clone https://github.com/seanh/seanh.github.io.git
+cd seanh.github.io
 make dev
 ```
 

@@ -49,7 +49,7 @@ ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
 ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}/'
 ARTICLE_SOURCE_URL = "{date:%Y}/{date:%m}/{date:%d}/{slug}/index{OUTPUT_SOURCES_EXTENSION}"
 
-GITHUB_REPO_URL = "https://github.com/seanh/seanh.github.io-pelican"
+GITHUB_REPO_URL = "https://github.com/seanh/seanh.github.io"
 DISPLAY_GITHUB_ARTICLE_SOURCE_LINKS = True
 
 # Make draft articles have the same URLs as they will have once published.
