@@ -1,36 +1,36 @@
-Running Locally
----------------
+# seanh.github.io-pelican
 
-**See also:**
-GitHub's instructions for [running a GitHub Pages site locally](https://help.github.com/en/articles/setting-up-your-github-pages-site-locally-with-jekyll)
-using the GitHub Pages gem.
+## Hacking
 
-To install and run this site locally:
+To run the site locally you will need:
 
-1. Install Ruby (2.1 or newer), Bundler and git:
+1. [Git](https://git-scm.com/)
+1. [GNU Make](https://www.gnu.org/software/make/)
+2. [pyenv](https://github.com/pyenv/pyenv)
+3. [tox](https://tox.wiki/)
 
-   ```terminal
-   sudo apt install ruby bundler git
-   ```
-   
-2. Clone this repo and cd into it:
+On Ubuntu run:
 
-   ```terminal
-   git clone https://github.com/seanh/seanh.github.io.git
-   cd seanh.github.io
-   ```
+```terminal
+sudo apt install --yes git make tox
+```
 
-3. Install Jekyll and other dependencies:
+Then follow pyenv's [Basic GitHub Checkout](https://github.com/pyenv/pyenv#basic-github-checkout)
+instructions and their [install Python build dependencies](https://github.com/pyenv/pyenv/wiki#suggested-build-environment)
+instructions. You **don't** need to install pyenv's shell integration.
+You don't need to install any versions of Python: the `make` commands below
+will install them automatically as needed.
 
-   ```terminal
-   bundle install --path vendor/bundle
-   ```
+Now to clone the repo and start the dev server on <http://127.0.0.1:8000> run:
 
-4. Finally, serve the site at <http://localhost:4000>:
+```terminal
+git clone https://github.com/seanh/seanh.github.io-pelican.git
+cd seanh.github.io-pelican
+make dev
+```
 
-   ```terminal
-   bundle exec jekyll serve
-   ```
+For more development environment commands run:
 
-You should run `bundle update` now and then to keep up to date with the GitHub
-Pages gem.
+```terminal
+make help
+```

@@ -1,0 +1,5 @@
+[tool.pip-tools]
+quiet = true
+allow-unsafe = true
+strip-extras = true
+generate-hashes = true
