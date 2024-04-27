@@ -92,7 +92,7 @@ AUTHORS_SAVE_AS = "" # "authors/index.html"
 AUTHOR_SAVE_AS = "" # "authors/{slug}/index.html"
 
 # Make author links go to the /about/ page instead of to Pelican's author pages.
-AUTHOR_URL = "about/" # "authors/{slug}/"
+AUTHOR_URL = "" # "authors/{slug}/"
 
 # Disable the period archive pages.
 YEAR_ARCHIVE_SAVE_AS = ""  # "{date:%Y}/index.html"
