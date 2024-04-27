@@ -72,6 +72,12 @@ TAGS_SAVE_AS = 'tags/index.html'
 TAG_SAVE_AS = "tags/{slug}/index.html"
 TAG_URL = "tags/{slug}/"
 
+# Make the URL of the drafts page nicer.
+DRAFTS_SAVE_AS = "drafts/index.html"
+
+# Make the URL of the hidden articles page nicer.
+HIDDEN_SAVE_AS = "hidden/index.html"
+
 # Disable the archive page.
 ARCHIVES_SAVE_AS = ""  # "archive/index.html"
 ARCHIVES_URL = ""  # "/archive/""
