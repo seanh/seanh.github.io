@@ -5,6 +5,7 @@ SITEURL = "http://localhost:8000"
 PATH = "content"
 DELETE_OUTPUT_DIRECTORY = True
 OUTPUT_SOURCES = True
+OUTPUT_SOURCES_EXTENSION = ".txt"
 STATIC_PATHS = ["images", "videos", "dissertation.pdf", "ThesisChapter5.pdf", "open-data-licensing-and-ckan.pdf"]
 TYPOGRIFY = True
 TYPOGRIFY_DASHES = "oldschool"
