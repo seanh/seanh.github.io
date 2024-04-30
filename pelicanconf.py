@@ -15,6 +15,7 @@ PLUGINS = ["pelican_alias"]
 DIRECT_TEMPLATES = ["index", "authors", "categories", "tags", "archives", "drafts", "hidden"]
 THEME_TEMPLATES_OVERRIDES = ["templates"]
 
+SIDECAR_ARTICLE_FOOTER = ["TIME", "TAGS"]
 SIDECAR_MENU = [
     "HOME",
     '<a rel="author" href="{SITEURL}/about/">About</a>',
