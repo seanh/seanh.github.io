@@ -9,6 +9,12 @@ My universal typography stylesheet.
 
 <img src="https://www.seanh.cc/oatcake/media/oatcake.png" alt="Oatcake's logo image">
 
+#### [ghp-static](https://github.com/seanh/ghp-static) (2023)
+
+A GitHub Actions reusable workflow for deploying static files directly to GitHub Pages -
+no Jekyll or static site generator needed, just deploy a directory of HTML and other
+static files directly to your GitHub Pages site.
+
 #### Find Me (2011)
 
 An iPad game for children with autism.
