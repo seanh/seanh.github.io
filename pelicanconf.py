@@ -69,7 +69,7 @@ DRAFT_PAGE_URL = '{slug}/'
 TAGS_SAVE_AS = 'tags/index.html'
 
 # Make the URLs of tag pages nicer.
-# Note: these need to be compatible with the PAGINATION_PATTERNS setting above.
+# Note: these need to be compatible with the PAGINATION_PATTERNS setting.
 TAG_SAVE_AS = "tags/{slug}/index.html"
 TAG_URL = "tags/{slug}/"
 
