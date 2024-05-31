@@ -49,7 +49,7 @@ FORMATTED_FIELDS = ['summary', 'subheading']
 # Make the URLs of article permalink pages nicer.
 ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
 ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}/'
-ARTICLE_SOURCE_URL = "{date:%Y}/{date:%m}/{date:%d}/{slug}/index{OUTPUT_SOURCES_EXTENSION}"
+ARTICLE_SOURCE_URL = "{article.url}index{OUTPUT_SOURCES_EXTENSION}"
 
 GITHUB_REPO_URL = "https://github.com/seanh/seanh.github.io"
 
@@ -60,6 +60,7 @@ DRAFT_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}/'
 # Make the URLs of static pages nicer.
 PAGE_SAVE_AS = '{slug}/index.html'
 PAGE_URL = '{slug}/'
+PAGE_SOURCE_URL = "{page.url}index{OUTPUT_SOURCES_EXTENSION}"
 
 # Make draft pages have the same URLs as they will have once published.
 DRAFT_PAGE_SAVE_AS = '{slug}/index.html'
