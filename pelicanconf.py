@@ -9,6 +9,7 @@ OUTPUT_SOURCES_EXTENSION = ".txt"
 STATIC_PATHS = ["images", "videos", "dissertation.pdf", "ThesisChapter5.pdf", "open-data-licensing-and-ckan.pdf"]
 TYPOGRIFY = True
 TYPOGRIFY_DASHES = "oldschool"
+DISPLAY_CATEGORIES_ON_MENU = False
 
 PLUGINS = ["pelican_alias"]
 
