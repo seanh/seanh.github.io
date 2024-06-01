@@ -19,8 +19,8 @@ THEME_TEMPLATES_OVERRIDES = ["templates"]
 SIDECAR_ARTICLE_FOOTER = ["TIME", "TAGS"]
 SIDECAR_MENU = [
     "HOME",
-    f'<a rel="author" href="{SITEURL}/about/">About</a>',
-    f'<a href="{SITEURL}/projects/">Projects</a>',
+    '<a rel="author" href="{SITEURL}/about/">About</a>',
+    '<a href="{SITEURL}/projects/">Projects</a>',
 ]
 
 # Get both the date and the slug (not just the date) from page and post filenames.
