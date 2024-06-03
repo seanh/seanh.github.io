@@ -16,7 +16,7 @@ PLUGINS = ["pelican_alias"]
 DIRECT_TEMPLATES = ["index", "authors", "categories", "tags", "archives", "drafts", "hidden"]
 THEME_TEMPLATES_OVERRIDES = ["templates"]
 
-SIDECAR_ARTICLE_FOOTER = ["TIME", "TAGS"]
+SIDECAR_ARTICLE_FOOTER = ["TIME"]
 SIDECAR_MENU = [
     "HOME",
     '<a rel="author" href="{SITEURL}/about/">About</a>',
@@ -67,13 +67,10 @@ PAGE_SOURCE_URL = "{page.url}index{OUTPUT_SOURCES_EXTENSION}"
 DRAFT_PAGE_SAVE_AS = '{slug}/index.html'
 DRAFT_PAGE_URL = '{slug}/'
 
-# Make the URL of the tags page nicer.
-TAGS_SAVE_AS = 'tags/index.html'
-
-# Make the URLs of tag pages nicer.
-# Note: these need to be compatible with the PAGINATION_PATTERNS setting.
-TAG_SAVE_AS = "tags/{slug}/index.html"
-TAG_URL = "tags/{slug}/"
+# Disable the tag pages.
+TAGS_SAVE_AS = "" # "tags/index.html"
+TAG_SAVE_AS = ""  # "tags/{slug}/index.html"
+TAG_URL = "" # "tag/{slug}/"
 
 # Make the URL of the drafts page nicer.
 DRAFTS_SAVE_AS = "drafts/index.html"
