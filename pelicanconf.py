@@ -52,8 +52,6 @@ ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
 ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}/'
 ARTICLE_SOURCE_URL = "{article.url}index{OUTPUT_SOURCES_EXTENSION}"
 
-GITHUB_REPO_URL = "https://github.com/seanh/seanh.github.io"
-
 # Make draft articles have the same URLs as they will have once published.
 DRAFT_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
 DRAFT_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}/'
