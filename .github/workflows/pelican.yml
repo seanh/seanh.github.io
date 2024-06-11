@@ -1,55 +1,15 @@
-name: Build & Publish
+name: Deploy to GitHub Pages
 on:
   push:
-    branches: ["main", "master"]
+    branches: ["main"]
   workflow_dispatch:
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout site
-        uses: actions/checkout@v4
-      - name: Checkout theme
-        uses: actions/checkout@v4
-        with:
-          path: sidecar
-          repository: seanh/sidecar
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-      - name: Configure GitHub Pages
-        id: pages
-        uses: actions/configure-pages@v5
-      - name: Install requirements
-        run: pip install -r requirements/dev.txt
-      - name: Build Pelican site
-        run: |
-          pelican \
-            --settings pelicanconf.py \
-            --output "output" \
-            --extra-settings \
-            SITEURL='"${{ steps.pages.outputs.base_url }}"' \
-            FEED_DOMAIN='"${{ steps.pages.outputs.base_url }}"' \
-            THEME='"./sidecar"'
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: output
   deploy:
+    uses: "seanh/pelican/.github/workflows/github_pages.yml@gha-theme-support"
     permissions:
-      contents: read
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      contents: "read"
+      pages: "write"
+      id-token: "write"
+    with:
+      settings: "pelicanconf.py"
+      requirements: "-r requirements/dev.txt"
