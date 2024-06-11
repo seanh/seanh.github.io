@@ -1,3 +1,4 @@
+THEME = "../sidecar"
 AUTHOR = "Sean Hammond"
 SITENAME = "seanh.cc"
 SITEURL = "http://localhost:8000"
@@ -12,6 +13,7 @@ DISPLAY_CATEGORIES_ON_MENU = False
 
 PLUGINS = ["pelican_alias"]
 
+DIRECT_TEMPLATES = ["index", "authors", "categories", "tags", "archives", "drafts", "hidden"]
 THEME_TEMPLATES_OVERRIDES = ["templates"]
 
 SIDECAR_TAGLINE = ["TIME"]
