@@ -1,4 +1,3 @@
-THEME = "../sidecar"
 AUTHOR = "Sean Hammond"
 SITENAME = "seanh.cc"
 SITEURL = "http://localhost:8000"
