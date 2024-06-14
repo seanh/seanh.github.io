@@ -3,6 +3,15 @@ Title: Projects
 Here's a list of some of my projects.
 You can find more on [my GitHub account](https://github.com/seanh?tab=repositories).
 
+#### [Sidecar](https://github.com/seanh/sidecar) (2024)
+
+A plain-but-pretty blog theme with a little sidebar,
+for the static site generator Pelican.
+
+<a href="https://github.com/seanh/sidecar">
+<img src="{static}/images/sidecar.png" alt="Screenshot of Sidecar, my blog theme">
+</a>
+
 #### [Oatcake](https://seanh.cc/oatcake/) (2024)
 
 My universal typography stylesheet.
