@@ -47,6 +47,10 @@ MARKDOWN = {
 # Support markdown in the `summary` and `subheading` page/article metadata fields.
 FORMATTED_FIELDS = ['summary', 'subheading']
 
+# Disable the archive page.
+INDEX_SAVE_AS = ""
+ARCHIVES_SAVE_AS = "index.html"
+
 # Make the URLs of article permalink pages nicer.
 ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
 ARTICLE_URL = '{date:%Y}/{date:%m}/{date:%d}/{slug}/'
@@ -75,10 +79,6 @@ DRAFTS_SAVE_AS = "drafts/index.html"
 
 # Make the URL of the hidden articles page nicer.
 HIDDEN_SAVE_AS = "hidden/index.html"
-
-# Disable the archive page.
-ARCHIVES_SAVE_AS = ""  # "archive/index.html"
-ARCHIVES_URL = ""  # "/archive/""
 
 # Disable the category pages.
 CATEGORIES_SAVE_AS = "" # "categories/index.html"
