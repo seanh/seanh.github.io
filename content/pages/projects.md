@@ -9,14 +9,16 @@ A plain-but-pretty blog theme with a little sidebar,
 for the static site generator Pelican.
 
 <a href="https://github.com/seanh/sidecar">
-<img src="{static}/images/sidecar.png" alt="Screenshot of Sidecar, my blog theme">
+<img src="{static}/images/sidecar.png" alt="Screenshot of Sidecar">
 </a>
 
 #### [Oatcake](https://seanh.cc/oatcake/) (2024)
 
 My universal typography stylesheet.
 
-<img src="https://www.seanh.cc/oatcake/media/oatcake.png" alt="Oatcake's logo image">
+<a href="https://seanh.cc/oatcake/">
+<img src="{static}/images/oatcake.png" alt="Screenshot of Oatcake">
+</a>
 
 #### [ghp-static](https://github.com/seanh/ghp-static) (2023)
 
