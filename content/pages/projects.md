@@ -20,6 +20,11 @@ My universal typography stylesheet.
 <img src="{static}/images/oatcake.png" alt="Screenshot of Oatcake">
 </a>
 
+#### [ghp-pelican](https://github.com/seanh/ghp-pelican) (2023)
+
+A reusable workflow for deploying a Pelican site to GitHub Pages using GitHub
+Actions.
+
 #### [ghp-static](https://github.com/seanh/ghp-static) (2023)
 
 A GitHub Actions reusable workflow for deploying static files directly to GitHub Pages -
