@@ -10,6 +10,8 @@ help:
 	@echo "    Upgrade foo to the latest version."
 	@echo "make upgrade-package package=foo==1.2.3"
 	@echo "    Upgrade or downgrade foo to 1.2.3."
+	@echo "make deploy"
+	@echo "    Deploy the latest version of the site to GitHub Pages."
 
 .PHONY: dev
 dev: python
@@ -30,6 +32,10 @@ upgrade:
 upgrade-package: python
 upgrade-package:
 	tox -e pipcompile -- --upgrade-package $(package)
+
+.PHONY: deploy
+deploy:
+	@gh workflow run --ref main pelican.yml && sleep 3 && gh run watch $$(gh run list --branch main --workflow pelican.yml --limit 1 --json databaseId --jq '.[].databaseId')
 
 .PHONY: python
 python:
