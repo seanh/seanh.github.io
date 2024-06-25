@@ -35,7 +35,7 @@ upgrade-package:
 
 .PHONY: deploy
 deploy:
-	@gh workflow run --ref main pelican.yml > /dev/null && GITHUB_TOKEN=$$(gh auth token) watch_gha_runs --wait-for-start
+	@gh workflow run --ref main deploy.yml > /dev/null && GITHUB_TOKEN=$$(gh auth token) watch_gha_runs --wait-for-start
 
 .PHONY: python
 python:
