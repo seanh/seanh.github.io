@@ -10,8 +10,6 @@ help:
 	@echo "    Upgrade foo to the latest version."
 	@echo "make upgrade-package package=foo==1.2.3"
 	@echo "    Upgrade or downgrade foo to 1.2.3."
-	@echo "make deploy"
-	@echo "    Deploy the latest version of the site to GitHub Pages."
 
 .PHONY: dev
 dev: python
@@ -32,10 +30,6 @@ upgrade:
 upgrade-package: python
 upgrade-package:
 	tox -e pipcompile -- --upgrade-package $(package)
-
-.PHONY: deploy
-deploy:
-	@gh workflow run --ref main deploy.yml > /dev/null && GITHUB_TOKEN=$$(gh auth token) watch_gha_runs --wait-for-start
 
 .PHONY: python
 python:
