@@ -14,7 +14,7 @@ Installing plugins and colorschemes
 Here's how you'd install the [vim-commentary](https://github.com/tpope/vim-commentary)
 plugin as a package:
 
-```terminal
+```console
 $ git clone https://github.com/tpope/vim-commentary.git ~/.vim/pack/plugins/start/vim-commentary
 ```
 
@@ -32,7 +32,7 @@ Now let's add the [PaperColor](https://github.com/NLKNguyen/papercolor-theme) co
 the docs recommend putting colorschemes in `~/.vim/pack/*/opt` rather than
 `~/.vim/pack/*/start`:
 
-```terminal
+```console
 $ git clone https://github.com/NLKNguyen/papercolor-theme.git ~/.vim/pack/colorschemes/opt/papercolor-theme
 ```
 
@@ -48,7 +48,7 @@ automatically when you start Vim, but you can manually load them in a given Vim
 instance using the `:packadd` command. For example let's install
 [copilot.vim](https://github.com/github/copilot.vim) as an optional plugin:
 
-```terminal
+```console
 $ git clone https://github.com/github/copilot.vim.git ~/.vim/pack/plugins/opt/copilot.vim
 ```
 
@@ -84,7 +84,7 @@ Updating plugins
 To update a plugin just replace the contents of its directory with the latest version.
 If the plugin came from a git repo just `cd` into the plugin directory and run `git pull`:
 
-```terminal
+```console
 $ cd ~/.vim/pack/plugins/start/vim-commentary/
 $ git pull
 ```
