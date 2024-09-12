@@ -57,7 +57,7 @@ $ git clone https://github.com/github/copilot.vim.git ~/.vim/pack/plugins/opt/co
 
 The plugin won't be loaded when you first launch Vim,
 but you can load it when you need it by running `:packadd copilot.vim`
-(`copilot.vim` here is the name of the `~/.vim/pack/plugins/opt/copilot.vim`
+(`copilot.vim` here is the name of the <code>~/.vim/pack/plugins/opt/<b>copilot.vim</b></code>
 directory that contains the plugin).
 
 Generating the docs for plugins
@@ -108,6 +108,7 @@ you can organise your plugins and colorschemes into whatever `~/.vim/pack/*` sub
 
 You could put all your colorschemes and plugins together in a single `~/.vim/pack/foo/` directory.
 Or you could organise them by author, for example `~/.vim/pack/tpope/` for all of Tim Pope's plugins.
+It makes no difference.
 I've decided to put all my plugins in a `plugins` directory
 and all my colorschemes in a `colorschemes` directory 🤷
 
