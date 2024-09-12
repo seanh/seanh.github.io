@@ -15,7 +15,6 @@ Here's how you'd install the [vim-commentary](https://github.com/tpope/vim-comme
 plugin as a package:
 
 ```terminal
-$ mkdir -p ~/.vim/pack/plugins/start
 $ git clone https://github.com/tpope/vim-commentary.git ~/.vim/pack/plugins/start/vim-commentary
 ```
 
@@ -34,7 +33,6 @@ the docs recommend putting colorschemes in `~/.vim/pack/*/opt` rather than
 `~/.vim/pack/*/start`:
 
 ```terminal
-$ mkdir -p ~/.vim/pack/colorschemes/opt
 $ git clone https://github.com/NLKNguyen/papercolor-theme.git ~/.vim/pack/colorschemes/opt/papercolor-theme
 ```
 
@@ -51,7 +49,6 @@ instance using the `:packadd` command. For example let's install
 [copilot.vim](https://github.com/github/copilot.vim) as an optional plugin:
 
 ```terminal
-$ mkdir -p ~/.vim/pack/plugins/opt
 $ git clone https://github.com/github/copilot.vim.git ~/.vim/pack/plugins/opt/copilot.vim
 ```
 
