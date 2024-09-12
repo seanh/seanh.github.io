@@ -16,7 +16,7 @@ PLUGINS = ["pelican_alias"]
 DIRECT_TEMPLATES = ["index", "authors", "categories", "tags", "archives", "drafts", "hidden"]
 THEME_TEMPLATES_OVERRIDES = ["templates"]
 
-SIDECAR_TAGLINE = ["TIME"]
+SIDECAR_TAGLINE = ["TIME", "TAGS"]
 SIDECAR_MENU = [
     "HOME",
     '<a rel="author" href="{SITEURL}/about/">About</a>',
@@ -65,10 +65,10 @@ PAGE_SOURCE_URL = "{page.url}index{OUTPUT_SOURCES_EXTENSION}"
 DRAFT_PAGE_SAVE_AS = '{slug}/index.html'
 DRAFT_PAGE_URL = '{slug}/'
 
-# Disable the tag pages.
-TAGS_SAVE_AS = "" # "tags/index.html"
-TAG_SAVE_AS = ""  # "tags/{slug}/index.html"
-TAG_URL = "" # "tag/{slug}/"
+# Make the URLs of tag pages nicer.
+TAGS_SAVE_AS = "tags/index.html"
+TAG_SAVE_AS = "tag/{slug}/index.html"
+TAG_URL = "tag/{slug}/"
 
 # Make the URL of the drafts page nicer.
 DRAFTS_SAVE_AS = "drafts/index.html"
