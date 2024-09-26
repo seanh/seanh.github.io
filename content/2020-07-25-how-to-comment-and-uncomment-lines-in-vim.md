@@ -17,7 +17,7 @@ $ vim -u NONE -c "helptags commentary/doc" -c q
 1. Press <kbd>gcc</kbd> in normal mode to comment or uncomment the current line.
 
     <figure>
-        <video controls="" muted="" playsinline="" src="{static}/videos/gcc.mp4"></video>
+        <video class="border" controls="" muted="" playsinline="" src="{static}/videos/gcc.mp4"></video>
         <figcaption><kbd>gcc</kbd> toggles commenting of the current line.</figcaption>
     </figure>
 
@@ -28,7 +28,7 @@ $ vim -u NONE -c "helptags commentary/doc" -c q
 2. Select some lines then press <kbd>gc</kbd> in visual mode to comment or uncomment the selected line(s):
 
     <figure>
-        <video controls="" muted="" playsinline="" src="{static}/videos/Vgc.mp4"></video>
+        <video class="border" controls="" muted="" playsinline="" src="{static}/videos/Vgc.mp4"></video>
         <figcaption><kbd>gc</kbd> toggles commenting of the selected lines.</figcaption>
     </figure>
 
@@ -115,7 +115,7 @@ For example <kbd>dw</kbd> deletes from the cursor to the start of the next word.
 <kbd>d</kbd> is the delete operator and <kbd>w</kbd> is a motion that jumps to the start of the next word:
 
 <figure>
-    <video controls="" muted="" playsinline="" src="{static}/videos/dw.mp4"></video>
+    <video class="border" controls="" muted="" playsinline="" src="{static}/videos/dw.mp4"></video>
     <figcaption><kbd>dw</kbd> deletes from the cursor to the start of the next word.</figcaption>
 </figure>
 
@@ -151,7 +151,7 @@ For example <kbd>gU$</kbd> will uppercase everything from the cursor position to
 <kbd>gU</kbd> is the uppercase operator and <kbd>$</kbd> is a motion to the end of the line:
 
 <figure>
-    <video controls="" muted="" playsinline="" src="{static}/videos/gU$.mp4"></video>
+    <video class="border" controls="" muted="" playsinline="" src="{static}/videos/gU$.mp4"></video>
     <figcaption><kbd>gU$</kbd> uppercases everything from the cursor to the end of the line.</figcaption>
 </figure>
 
@@ -199,7 +199,7 @@ This is why <kbd>3gcc</kbd> toggles commenting of three lines.
 For example <kbd>aw</kbd> stands for "around word", typing <kbd>aw</kbd> in visual mode expands the selection in both directions at once to encompass the entire word under the cursor including any trailing whitespace:
 
 <figure>
-    <video controls="" muted="" playsinline="" src="{static}/videos/aw.mp4"></video>
+    <video class="border" controls="" muted="" playsinline="" src="{static}/videos/aw.mp4"></video>
     <figcaption><kbd>aw</kbd> expands the selection in both directions to select the word under the cursor.</figcaption>
 </figure>
 
@@ -218,14 +218,14 @@ There are several text objects for selecting text within pairs of surrounding ch
 select text within or around pairs of `[...]`'s, `(...)`'s, `<...>`'s, `{...}`'s, `'...'`'s, `"..."`'s or <code>\`...\`</code>'s:
 
 <figure markdown="1">
-<video controls="" muted="" playsinline="" src="{static}/videos/brackets.mp4"></video>
+<video class="border" controls="" muted="" playsinline="" src="{static}/videos/brackets.mp4"></video>
 <figcaption markdown="1"><kbd>i"</kbd> selects everything inside the `"..."`'s. <kbd>i(</kbd> selects everything inside the `(...)`'s.</figcaption>
 </figure>
 
 The <kbd>i</kbd> versions select only the text inside the brackets whereas the <kbd>a</kbd> versions select the brackets themselves as well):
 
 <figure markdown="1">
-<video controls="" muted="" playsinline="" src="{static}/videos/around-brackets.mp4"></video>
+<video class="border" controls="" muted="" playsinline="" src="{static}/videos/around-brackets.mp4"></video>
 <figcaption markdown="1"><kbd>a"</kbd> and <kbd>a(</kbd> select _around_ the `"..."`'s and `(...)`'s.</figcaption>
 </figure>
 
@@ -236,7 +236,7 @@ for example <kbd>i]</kbd> is the same as <kbd>i[</kbd>,
 There's also <kbd>it</kbd> and <kbd>at</kbd> which select text within or around pairs of HTML opening and closing tags like `<div>...</div>`:
 
 <figure markdown="1">
-<video controls="" muted="" playsinline="" src="{static}/videos/vat.mp4"></video>
+<video class="border" controls="" muted="" playsinline="" src="{static}/videos/vat.mp4"></video>
 <figcaption markdown="1"><kbd>it</kbd> and <kbd>at</kbd> select within and around HTML tags.</figcaption>
 </figure>
 
@@ -247,7 +247,7 @@ press <kbd>v</kbd> to enter visual mode,
 then <kbd>d</kbd> to delete the text:
 
 <figure markdown="1">
-<video controls="" muted="" playsinline="" src="{static}/videos/vi[d.mp4"></video>
+<video class="border" controls="" muted="" playsinline="" src="{static}/videos/vi[d.mp4"></video>
 <figcaption markdown="1"><kbd>v</kbd> enters visual mode, <kbd>i[</kbd> selects the text inside the `[...]`'s, then <kbd>d</kbd> deletes the selected text.</figcaption>
 </figure>
 
@@ -260,7 +260,7 @@ You can swap the cursor to the other end of the selection with <kbd>o</kbd> so
 you can adjust it from both ends:
 
 <figure markdown="1">
-<video controls="" muted="" playsinline="" src="{static}/videos/o.mp4"></video>
+<video class="border" controls="" muted="" playsinline="" src="{static}/videos/o.mp4"></video>
 <figcaption markdown="1">You can use as many motions as you need to get the right selection in visual mode.
 <kbd>o</kbd> toggles the cursor from one end of the selection to the other so you can adjust both the start and end of the selection.</figcaption>
 </figure>
@@ -273,14 +273,14 @@ Text objects can be used directly in place of the motions in operator commands:
 <kbd>di[</kbd> will delete everything inside a pair of `[...]`'s without having to go into visual mode first:
 
 <figure markdown="1">
-<video controls="" muted="" playsinline="" src="{static}/videos/di.mp4"></video>
+<video class="border" controls="" muted="" playsinline="" src="{static}/videos/di.mp4"></video>
 <figcaption markdown="1"><kbd>di[</kbd> deletes everything inside the `[...]`'s.</figcaption>
 </figure>
 
 Or <kbd>&gt;ap</kbd> will indent the current paragraph directly:
 
 <figure>
-    <video controls="" muted="" playsinline="" src="{static}/videos/&gt;ap.mp4"></video>
+    <video class="border" controls="" muted="" playsinline="" src="{static}/videos/&gt;ap.mp4"></video>
     <figcaption><kbd>&gt;ap</kbd> indents the current paragraph.</figcaption>
 </figure>
 
@@ -292,7 +292,7 @@ and the second <kbd>gc</kbd> is the "current comment" text object.
 So <kbd>gcgc</kbd> uncomments the entire current comment:
 
 <figure>
-    <video controls="" muted="" playsinline="" src="{static}/videos/gcgc.mp4"></video>
+    <video class="border" controls="" muted="" playsinline="" src="{static}/videos/gcgc.mp4"></video>
     <figcaption><kbd>gcgc</kbd> uncomments a comment.</figcaption>
 </figure>
 
