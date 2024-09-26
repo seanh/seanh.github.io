@@ -240,18 +240,33 @@ There's also <kbd>it</kbd> and <kbd>at</kbd> which select text within or around 
 <figcaption markdown="1"><kbd>it</kbd> and <kbd>at</kbd> select within and around HTML tags.</figcaption>
 </figure>
 
+After selecting text objects in visual mode you can type an operator command to operate on the selected text.
+For example with your cursor on some text inside some `[...]`'s
+press <kbd>v</kbd> to enter visual mode,
+<kbd>i[</kbd> to select the text inside the `[...]`'s
+then <kbd>d</kbd> to delete the text.
+
+Visual mode is a great way to practice text objects:
+you can see what you're selecting and you can type as many motions as you need
+to get exactly the selection you want before typing an operator.
+You can even adjust the selection by just moving the cursor around with the
+plain old arrow keys or <kbd>h</kbd>, <kbd>j</kbd>, <kbd>k</kbd> and <kbd>l</kbd>.
+You can swap the cursor to the other end of the selection with <kbd>o</kbd> so
+you can adjust it from both ends.
+
+But once you get used to some text objects there's a faster way to use them.
 Text objects can be used in place of the motions in operator commands:
 
 <pre class="lead" style="text-align:center;">{operator} {text object}</pre>
 
-For example <kbd>di[</kbd> will delete everything inside the pair of `[...]`'s that the cursor is currently within:
+<kbd>di[</kbd> will delete everything inside a pair of `[...]`'s without having to go into visual mode first:
 
 <figure markdown="1">
 <video controls="" muted="" playsinline="" src="{static}/videos/di.mp4"></video>
 <figcaption markdown="1"><kbd>di[</kbd> deletes everything inside the `[...]`'s.</figcaption>
 </figure>
 
-Or <kbd>&gt;ap</kbd> will indent the current paragraph:
+Or <kbd>&gt;ap</kbd> will indent the current paragraph directly:
 
 <figure>
     <video controls="" muted="" playsinline="" src="{static}/videos/&gt;ap.mp4"></video>
@@ -269,3 +284,13 @@ So <kbd>gcgc</kbd> uncomments the entire current comment:
     <video controls="" muted="" playsinline="" src="{static}/videos/gcgc.mp4"></video>
     <figcaption><kbd>gcgc</kbd> uncomments a comment.</figcaption>
 </figure>
+
+Footnote: you can't use <kbd>gc</kbd> to select a comment
+---------------------------------------------------------
+
+You can't type <kbd>gc</kbd> in visual mode to select a comment.
+Instead, <kbd>gc</kbd> in visual mode comments or uncomments the selected lines.
+Since the same keyboard command <kbd>gc</kbd> is used as both an operator and a text object
+<kbd>gc</kbd> in visual mode can't do both, it had to be one or the other,
+so <kbd>gc</kbd> is a text object in operator-pending mode only.
+In normal mode and visual mode it's an operator.
