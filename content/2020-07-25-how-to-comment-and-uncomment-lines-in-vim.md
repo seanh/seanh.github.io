@@ -48,7 +48,7 @@ $ vim -u NONE -c "helptags commentary/doc" -c q
 
         * <kbd>gc3j</kbd> comments or uncomments the current line and three lines below it.
         * <kbd>gc3k</kbd> comments or uncomments the current line and the three above it.
-        * You can also put the count at the start of the command: <kbd>3gcj</kbd> and <kbd>3gck</kbd> do the same thing.
+        * You can also put the count at the start of the command: <kbd>3gcj</kbd> or <kbd>3gck</kbd>.
 
     * <kbd>gg</kbd> moves to the top of the file and <kbd>G</kbd> moves to the bottom of the file, so:
 
@@ -244,7 +244,12 @@ After selecting text objects in visual mode you can type an operator command to 
 For example with your cursor on some text inside some `[...]`'s
 press <kbd>v</kbd> to enter visual mode,
 <kbd>i[</kbd> to select the text inside the `[...]`'s
-then <kbd>d</kbd> to delete the text.
+then <kbd>d</kbd> to delete the text:
+
+<figure markdown="1">
+<video controls="" muted="" playsinline="" src="{static}/videos/vi[d.mp4"></video>
+<figcaption markdown="1"><kbd>v</kbd> enters visual mode, <kbd>i[</kbd> selects the text inside the `[...]`'s, then <kbd>d</kbd> deletes the selected text.</figcaption>
+</figure>
 
 Visual mode is a great way to practice text objects:
 you can see what you're selecting and you can type as many motions as you need
@@ -252,10 +257,16 @@ to get exactly the selection you want before typing an operator.
 You can even adjust the selection by just moving the cursor around with the
 plain old arrow keys or <kbd>h</kbd>, <kbd>j</kbd>, <kbd>k</kbd> and <kbd>l</kbd>.
 You can swap the cursor to the other end of the selection with <kbd>o</kbd> so
-you can adjust it from both ends.
+you can adjust it from both ends:
 
-But once you get used to some text objects there's a faster way to use them.
-Text objects can be used in place of the motions in operator commands:
+<figure markdown="1">
+<video controls="" muted="" playsinline="" src="{static}/videos/o.mp4"></video>
+<figcaption markdown="1">You can use as many motions as you need to get the right selection in visual mode.
+<kbd>o</kbd> toggles the cursor from one end of the selection to the other so you can adjust both the start and end of the selection.</figcaption>
+</figure>
+
+Once you get used to some text objects there's a faster way to use them.
+Text objects can be used directly in place of the motions in operator commands:
 
 <pre class="lead" style="text-align:center;">{operator} {text object}</pre>
 
@@ -288,9 +299,10 @@ So <kbd>gcgc</kbd> uncomments the entire current comment:
 Footnote: you can't use <kbd>gc</kbd> to select a comment
 ---------------------------------------------------------
 
-You can't type <kbd>gc</kbd> in visual mode to select a comment.
+You can't use <kbd>gc</kbd> as a motion in normal mode or visual mode.
+For example you can't type <kbd>gc</kbd> in visual mode to select a comment.
 Instead, <kbd>gc</kbd> in visual mode comments or uncomments the selected lines.
-Since the same keyboard command <kbd>gc</kbd> is used as both an operator and a text object
-<kbd>gc</kbd> in visual mode can't do both, it had to be one or the other,
-so <kbd>gc</kbd> is a text object in operator-pending mode only.
+Since the same key sequence <kbd>gc</kbd> is used as an operator and a text object it can't be both at once in normal mode or visual mode,
+it has to be one or the other.
+So <kbd>gc</kbd> is a text object in operator-pending mode only.
 In normal mode and visual mode it's an operator.
