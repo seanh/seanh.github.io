@@ -1,7 +1,7 @@
 Title: Comment and Uncomment Lines with <code>commentary.vim</code>
 Tags: vim
 
-<p class="lead">Using the commentary.vim plugin to learn about Vim's operators, motions and test objects.</p>
+<p class="lead">Using the commentary.vim plugin to learn about Vim's operators, motions and text objects.</p>
 
 [commentary.vim](https://github.com/tpope/vim-commentary) provides several ways to comment or uncomment lines.
 First install the plugin
@@ -29,7 +29,7 @@ $ vim -u NONE -c "helptags commentary/doc" -c q
 
     <figure>
         <video controls="" muted="" playsinline="" src="{static}/videos/Vgc.mp4"></video>
-        <figcaption><kbd>gc</kbd> toggles commenting of the selected text.</figcaption>
+        <figcaption><kbd>gc</kbd> toggles commenting of the selected lines.</figcaption>
     </figure>
 
 3. <kbd>gc{motion}</kbd> in normal mode comments or uncomments all lines that the given `{motion}` moves over.
@@ -64,7 +64,7 @@ $ vim -u NONE -c "helptags commentary/doc" -c q
 
     * [vim-indent-object]({filename}2020-08-08-vim-indent-object.md) is a plugin that
       adds <kbd>ii</kbd> as a text object for the current indented block
-      and <kbd>ai</kbd> for the current indented block _and the first line above the indentation_, so:
+      and <kbd>ai</kbd> for the current indented block _including the first line above the indentation_, so:
 
         * <kbd>gcii</kbd> comments or uncomments the current indented block.
         * <kbd>gcai</kbd> comments or uncomments the current indented block and the first line above it.
@@ -164,21 +164,39 @@ to tell it what text to operate on by typing a motion:
     <figcaption>
       Vim in operator-pending mode.
       The <code>d</code> in the bottom-right indicates that a <kbd>d</kbd> (delete) command has been entered.
-      Vim is waiting for you to tell it what text you want it to delete by entering a motion.
+      Vim is waiting for you to tell it what to delete by entering a motion.
     </figcaption>
 </figure>
 
 
-<aside class="note" markdown="1">**Aside:** there's a shortcut for operating on the current line: you just hit the operator key twice.
-For example <kbd>yy</kbd> will yank the entire current line,
-or <kbd>cc</kbd> will delete the current line and enter insert mode so you can type a replacement (<kbd>c</kbd> is the "change" operator).
+<aside class="note" markdown="1">
+#### Operating on the current line
 
-For multi-character operator commands you just repeat the last key, for example <kbd>gUU</kbd> will uppercase the whole line.
+There's a shortcut for operating on the current line: you just hit the operator key twice.
+For example <kbd>cc</kbd> will delete the current line and enter insert mode so you can type a replacement (<kbd>c</kbd> is the "change" operator),
+<kbd>yy</kbd> will yank the entire current line,
+<kbd>dd</kbd> will delete the current line.
+
+For multi-character operator commands you just repeat the last key, for example <kbd>guu</kbd> will lowercase the whole line (<kbd>gu</kbd> is the lowercase operator).
 This is why <kbd>gcc</kbd> toggles commenting of the current line.
 </aside>
 
-**Text objects** are commands that you can use in visual mode to select ranges of text.
-For example <kbd>aw</kbd> stands for "around word", typing <kbd>aw</kbd> in visual mode expands the selection in both directions at once to contain the word under the cursor including any trailing whitespace:
+<aside class="note" markdown="1">
+#### Counts
+
+You can optionally add a count to an `{operator} {motion}` command:
+either `{count} {operator} {motion}` or `{operator} {count} {motion}` works
+(actually `{count} {operator} {count} {motion}` also works!).
+
+So <kbd>3dw</kbd> will delete three words (the current word and the next two),
+<kbd>2yy</kbd> will yank two lines (the current line and the one below), etc.
+
+This is why <kbd>3gcc</kbd> toggles commenting of three lines.
+</aside>
+
+
+**Text objects** are commands that you can use in visual mode to select defined ranges of text surrounding the cursor.
+For example <kbd>aw</kbd> stands for "around word", typing <kbd>aw</kbd> in visual mode expands the selection in both directions at once to encompass the entire word under the cursor including any trailing whitespace:
 
 <figure>
     <video controls="" muted="" playsinline="" src="{static}/videos/aw.mp4"></video>
