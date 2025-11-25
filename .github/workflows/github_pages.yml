@@ -19,6 +19,7 @@ jobs:
       id-token: "write"
     with:
       settings: "pelicanconf.py"
+      python: "3.13"
       requirements: "-r requirements/dev.txt"
       theme: "https://github.com/seanh/sidecar.git"
       theme-checkout: "15376f2"
