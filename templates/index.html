@@ -3,3 +3,19 @@
 {% block title %}{{ super.super() }}{% endblock %}
 
 {% block content_title %}{% endblock %}
+
+{% block content %}
+  <div style="text-align: center; margin-top: calc(4 * var(--ok-line-height)); margin-bottom: calc(5 * var(--ok-line-height)); max-width: 25rem; margin-left: auto; margin-right: auto;">
+    <img style="border: none; border-radius: 100%; margin-bottom: var(--ok-line-height); margin-top: 0; padding: 0;" src="https://gravatar.com/avatar/bfda7359103e3879e16f65bed41ce848fb8c2e9ea44822fc7469984c19cb1902?s=72">
+    <h1 style="margin-bottom: var(--ok-line-height); padding: 0;">I blog, you blog, weblog.</h1>
+    <p>
+      Hi 👋, I'm <a rel="author" href="{{ SITEURL }}/about/">Sean</a>,
+      a developer and future Portuguese Water Dog owner living in
+      <s>Berlin</s>,
+      <s>Edinburgh</s>,
+      Leith.
+      This site is my public notebook.
+  </div>
+
+  {{ super() }}
+{% endblock %}

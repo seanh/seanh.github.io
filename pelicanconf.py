@@ -1,6 +1,6 @@
 THEME = "../sidecar"
 AUTHOR = "Sean Hammond"
-SITENAME = "seanh.cc"
+SITENAME = "seanh"
 SITEURL = "http://localhost:8000"
 PATH = "content"
 DELETE_OUTPUT_DIRECTORY = True
@@ -10,25 +10,26 @@ STATIC_PATHS = ["images", "videos", "dissertation.pdf", "ThesisChapter5.pdf", "o
 TYPOGRIFY = True
 TYPOGRIFY_DASHES = "oldschool"
 DISPLAY_CATEGORIES_ON_MENU = False
+GITHUB_URL = "https://github.com/seanh/"
 
 PLUGINS = ["pelican_alias"]
 
 DIRECT_TEMPLATES = ["index", "authors", "categories", "tags", "archives", "drafts", "hidden"]
 THEME_TEMPLATES_OVERRIDES = ["templates"]
 
-SIDECAR_TAGLINE = ["TIME"]
-SIDECAR_MENU = [
+SIDECAR_ARTICLE_FOOTER = ["TIME"]
+SIDECAR_NAVBAR = [
     "HOME",
-    '<a rel="author" href="{SITEURL}/about/">About</a>',
-    '<a href="{SITEURL}/projects/">Projects</a>',
+    "SPACE",
+    "PAGES",
 ]
 
 # Get both the date and the slug (not just the date) from page and post filenames.
 FILENAME_METADATA = r'^(?P<date>\d{4}-\d{2}-\d{2})-(?P<slug>.*)$'
 SLUGIFY_SOURCE = 'basename'
 
-# Customise the format the article dates are shown in.
-DEFAULT_DATE_FORMAT = '%B %Y'
+# Customise the format the article dates are shown in
+DEFAULT_DATE_FORMAT = "%b %Y"
 
 # Configure Python-Markdown.
 MARKDOWN = {
