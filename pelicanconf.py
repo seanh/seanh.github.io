@@ -1,34 +1,48 @@
-THEME = "../sidecar"
 AUTHOR = "Sean Hammond"
-SITENAME = "seanh.cc"
-SITEURL = "http://localhost:8000"
-PATH = "content"
+DEFAULT_DATE_FORMAT = "%b %Y"
+DEFAULT_PAGINATION = 10
 DELETE_OUTPUT_DIRECTORY = True
+GITHUB_URL = "https://github.com/seanh/"
 OUTPUT_SOURCES = True
 OUTPUT_SOURCES_EXTENSION = ".txt"
+PATH = "content"
+SITENAME = "seanh.cc"
+SITEURL = "http://localhost:8000"
 STATIC_PATHS = ["images", "videos", "dissertation.pdf", "ThesisChapter5.pdf", "open-data-licensing-and-ckan.pdf"]
+THEME = "../sidecar"
 TYPOGRIFY = True
 TYPOGRIFY_DASHES = "oldschool"
-DISPLAY_CATEGORIES_ON_MENU = False
 
 PLUGINS = ["pelican_alias"]
 
 DIRECT_TEMPLATES = ["index", "authors", "categories", "tags", "archives", "drafts", "hidden"]
 THEME_TEMPLATES_OVERRIDES = ["templates"]
 
-SIDECAR_TAGLINE = ["TIME"]
-SIDECAR_MENU = [
+AVATAR_URL = "{SITEURL}/images/avatar/avatar_cropped_360.jpeg"
+SITESUBTITLE = "I blog, you blog, weblog."
+SITEBIO = '''
+    Hi 👋, I'm Sean:
+    a software developer and future Portuguese Water Dog owner living in
+    <s>Ottawa</s>, <s>Berlin</s>, <s>Edinburgh</s>, Leith.
+    <a rel="author" href="{SITEURL}/about/">I'm currently looking for work.</a>
+'''
+
+SIDECAR_NAVBAR = [
     "HOME",
+    "SPACE",
+    "ARCHIVES",
     '<a rel="author" href="{SITEURL}/about/">About</a>',
     '<a href="{SITEURL}/projects/">Projects</a>',
+    "GITHUB",
 ]
+
+SIDECAR_ARTICLE_TAGLINE_ITEMS = ["TIME"]
+SIDECAR_PAGE_TAGLINE_ITEMS = ["TIME"]
+SIDECAR_PAGE_FOOTER_ITEMS = []
 
 # Get both the date and the slug (not just the date) from page and post filenames.
 FILENAME_METADATA = r'^(?P<date>\d{4}-\d{2}-\d{2})-(?P<slug>.*)$'
 SLUGIFY_SOURCE = 'basename'
-
-# Customise the format the article dates are shown in.
-DEFAULT_DATE_FORMAT = '%B %Y'
 
 # Configure Python-Markdown.
 MARKDOWN = {
@@ -44,8 +58,8 @@ MARKDOWN = {
     'output_format': 'html5',
 }
 
-# Support markdown in the `summary` and `subheading` page/article metadata fields.
-FORMATTED_FIELDS = ['summary', 'subheading']
+# Support markdown in the `summary`, `subheading`, and `subtitle` page/article metadata fields.
+FORMATTED_FIELDS = ['summary', 'subheading', 'subtitle']
 
 # Make the URLs of article permalink pages nicer.
 ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}/index.html'
@@ -76,23 +90,29 @@ DRAFTS_SAVE_AS = "drafts/index.html"
 # Make the URL of the hidden articles page nicer.
 HIDDEN_SAVE_AS = "hidden/index.html"
 
-# Disable the archive page.
-ARCHIVES_SAVE_AS = ""  # "archive/index.html"
-ARCHIVES_URL = ""  # "/archive/""
+# Make the URL of the archives page nicer.
+ARCHIVES_SAVE_AS = "archives/index.html"
+ARCHIVES_URL = "/archives/"
 
-# Disable the category pages.
-CATEGORIES_SAVE_AS = "" # "categories/index.html"
-CATEGORY_SAVE_AS = ""  # "categories/{slug}/index.html"
-CATEGORY_URL = "" # "categories/{slug}/"
+# Make the URLs of category pages nicer.
+CATEGORIES_SAVE_AS = "categories/index.html"
+CATEGORY_SAVE_AS = "categories/{slug}/index.html"
+CATEGORY_URL = "categories/{slug}/"
+
+# Make pagination URLs nicer.
+PAGINATION_PATTERNS = (
+    (1, "{base_name}", "{save_as}"),
+    (2, "{base_name}/page/{number}/", "{base_name}/page/{number}/index.html"),
+)
 
 # Disable the author pages.
 AUTHORS_SAVE_AS = "" # "authors/index.html"
 AUTHOR_SAVE_AS = "" # "authors/{slug}/index.html"
 
-# Make author links go to the /about/ page instead of to Pelican's author pages.
+# Make author links go to the front page instead of to Pelican's author pages.
 AUTHOR_URL = "" # "authors/{slug}/"
 
-# Disable the period archive pages.
+# Disable the period archives pages.
 YEAR_ARCHIVE_SAVE_AS = ""  # "{date:%Y}/index.html"
 YEAR_ARCHIVE_URL = ""  # "{date:%Y}/"
 MONTH_ARCHIVE_SAVE_AS = ""  # "{date:%Y}/{date:%m}/index.html"

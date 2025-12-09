@@ -1,11 +1,8 @@
 Title: Setting Options in tmux
 Tags: tmux
+Summary: How to use tmux's `set` and `show` commands to set and query tmux config settings ("options").
 
-<p class="lead" markdown="1">
-How to use tmux's `set` and `show` commands to set and query tmux config settings ("options").
-</p>
-
-<div class="note" markdown="1">
+<aside markdown="1">
 
 #### TLDR
 
@@ -16,7 +13,7 @@ How to use tmux's `set` and `show` commands to set and query tmux config setting
   The setting will be flagged with `*` if it's being inherited from the global setting.
 * `set -u foo` unsets an option, reverting to the default. `set -gu foo` unsets a global option.
 
-</div>
+</aside>
 
 The `set-option` command (alias `set`) sets options, and `show-option` (alias `show`) shows what value an option is currently set to.
 See [`man tmux`](http://manpages.ubuntu.com/manpages/focal/man1/tmux.1.html#options) for a list of all the available options.

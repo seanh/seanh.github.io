@@ -26,7 +26,7 @@ period of at least three days (configurable) have found its URL broken.
 A public report is added to the resource's page detailing the results:
 
 <figure>
-    <img src="{static}/images/broken_resource.png" alt="Screenshot of a broken resource report" title="Screenshot of a broken resource report">
+    <img style="border: none;" src="{static}/images/broken_resource.png" alt="Screenshot of a broken resource report" title="Screenshot of a broken resource report">
     <figcaption>A broken resource report, from a resource's public page. The details should help the data file's maintainers fix the problem. We also add a positive confirmation to working resource's pages.</figcaption>
 </figure>
 
@@ -36,7 +36,7 @@ broken links first. Hopefully highlighting which publishing organizations have
 the most broken links will encourage them to fix the problems:
 
 <figure>
-    <img src="{static}/images/broken_links_by_organization.png" alt="Screenshot of the broken links by organization report" title="Screenshot of the broken links by organization report">
+    <img style="border: none;" src="{static}/images/broken_links_by_organization.png" alt="Screenshot of the broken links by organization report" title="Screenshot of the broken links by organization report">
     <figcaption>The site-wide broken links report.</figcaption>
 </figure>
 
@@ -46,7 +46,7 @@ author responsible for the dataset. The aim is to make it as easy as possible
 for site admins to email dataset maintainers about their broken links:
 
 <figure>
-    <img src="{static}/images/broken_links_by_email.png" alt="Screenshot of the broken links by email report" title="Screenshot of the broken links by email report">
+    <img style="border: none;" src="{static}/images/broken_links_by_email.png" alt="Screenshot of the broken links by email report" title="Screenshot of the broken links by email report">
     <figcaption>The private broken links report.</figcaption>
 </figure>
 

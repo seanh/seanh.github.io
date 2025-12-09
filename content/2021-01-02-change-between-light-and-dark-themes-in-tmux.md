@@ -1,9 +1,6 @@
 Title: Change Between Light and Dark Themes in tmux
 Tags: tmux
-
-<p class="lead" markdown="1">
-How to toggle between light-background and dark-background themes in tmux.
-</p>
+Summary: How to toggle between light-background and dark-background themes in tmux.
 
 <img src="{static}/videos/tmux-toggle-theme.gif">
 

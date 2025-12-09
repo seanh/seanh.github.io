@@ -3,12 +3,12 @@ Subheading: An open source web app for creating and publishing tabular data pack
 Tags: CKAN
 Alias: /post/datapackager/
 
-<p class="attention-grabber">The Data Packager is a fun little project that
+The Data Packager is a fun little project that
 <a href="https://github.com/joetsoi">Joe Tsoi</a>,
 <a href="https://whiteink.com/">Nick Stenning</a>,
 and I worked on for a couple of months, with some extra design input from
 <a href="http://www.mintcanary.com/">Sam Smith</a>. This is a re-post of the original
-<a href="http://ckan.org/2014/06/09/the-open-knowledge-data-packager/">release announcement on the CKAN blog</a>.</p>
+<a href="http://ckan.org/2014/06/09/the-open-knowledge-data-packager/">release announcement on the CKAN blog</a>.
 
 [Data Packager](http://ckan.org/2014/06/09/the-open-knowledge-data-packager/)
 is a web app for quickly creating and publishing
@@ -89,7 +89,7 @@ a ZIP file including all of your package's CSV files and the `datapackage.json`
 file containing the metadata you entered for your package and files, plus schemas
 for each of your files:
 
-<img src="{static}/images/datapackager-download.png" alt="Screenshot of Download Data Package button">
+<img style="border: none;" src="{static}/images/datapackager-download.png" alt="Screenshot of Download Data Package button">
 
 ## Schema Browser
 

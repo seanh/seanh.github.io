@@ -31,7 +31,7 @@ and it revealed some interesting limitations that could be addressed in CKAN.
 The way it works is:
 
 <figure>
-    <img src="{static}/images/persona_signin_1.png" alt="Logging into CKAN using Persona" title="Logging into CKAN using Persona">
+    <img style="border: none;" src="{static}/images/persona_signin_1.png" alt="Logging into CKAN using Persona" title="Logging into CKAN using Persona">
     <figcaption>Logging into CKAN using Persona</figcaption>
 </figure>
 
@@ -61,7 +61,7 @@ verifying it, the Persona plugin's `login()` method handles the login request
 as follows:
 
 <figure>
-    <img src="{static}/images/persona_signin_2.png" alt="Logging into CKAN using Persona" title="Logging into CKAN using Persona">
+    <img style="border: none;" src="{static}/images/persona_signin_2.png" alt="Logging into CKAN using Persona" title="Logging into CKAN using Persona">
     <figcaption>Logging into CKAN using Persona</figcaption>
 </figure>
 

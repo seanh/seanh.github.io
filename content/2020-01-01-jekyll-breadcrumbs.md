@@ -73,10 +73,10 @@ Breadcrumbs will automatically find and link to their corresponding pages if the
 
     You might use this page to list all posts in the category.
 
-    <div class="note" markdown="1">
+    <aside markdown="1">
     When creating category pages it's important to understand that
     [categories in Jekyll aren't hierarchical](https://www.seanh.cc/jekyll-theme-oatcake/programming/web-design/bar/2019/12/24/categories-and-tags/#categories-arent-hierarchical).
-    </div>
+    </aside>
 
 * For a post's year, month and day, if there's a page whose URL matches that
   year, month, or day, then the year, month or day breadcrumb will link to it.

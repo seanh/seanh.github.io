@@ -4,12 +4,12 @@ Tags: Hypothesis
 Alias: /post/code-review/
        /posts/code-review/
 
-<div class="note" markdown="1">
+<aside markdown="1">
 See also:
 
 * This post was [cross-posted to the Hypothesis blog](https://hypothes.is/blog/code-review-in-remote-teams/)
 * Discussion of this post [on MetaFilter](https://www.metafilter.com/163682/Code-reviews-are-for-improving-code-quality-and-morale)
-</div>
+</aside>
 
 This is a write-up of some research that I did for a session with our dev team
 at [Hypothesis](https://hypothes.is/) about how to make our code reviews a more

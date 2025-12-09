@@ -1,11 +1,8 @@
 Title: Copy and Paste in tmux
 Tags: tmux
+Summary: How to make copy and paste in tmux work the same as in other apps, using the system clipboard and primary selection.
 
-<div class="lead" markdown="1">
-How to make copy and paste in tmux work the same as in other apps, using the system clipboard and primary selection.
-</div>
-
-<div class="note" markdown="1">
+<aside markdown="1">
 ### TLDR
 
 Install [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
@@ -47,7 +44,7 @@ bind -T copy-mode-vi C-c send -X copy-pipe-no-clear "xsel -i --clipboard"
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
 run '~/.tmux/plugins/tpm/tpm'
 ```
-</div>
+</aside>
 
 By default if you're running tmux in GNOME Terminal or st you can copy and
 paste with the primary selection and system clipboard like you would in any
@@ -76,7 +73,7 @@ There are a few problems with this:
    pane. There are other problems too, like being unable to copy a block of
    text that takes up more than one screenful in the scrollback history.
 
-     <img src="{static}/images/tmux-copy-fail.png">
+     <img style="border: none;" src="{static}/images/tmux-copy-fail.png">
 
 2. Copying text using keyboard commands and tmux's copy mode doesn't copy the
    text into the system clipboard. Selecting text with tmux's keyboard commands
@@ -95,7 +92,7 @@ $ tmux set -g mouse on
 
 Now selecting text by clicking-and-dragging with the mouse is aware of tmux panes, scrollback, and everything else:
 
-<img src="{static}/images/tmux-copy-fix.png">
+<img style="border: none;" src="{static}/images/tmux-copy-fix.png">
 
 And we've gained the rest of tmux's mouse mode features, too:
 
@@ -129,7 +126,7 @@ Fortunately we can fix all of this with a little bit of tmux config work...
 The first thing to do is install [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm)
 and then use it to install the [tmux-yank](https://github.com/tmux-plugins/tmux-yank) plugin.
 
-<div class="note" markdown="1">
+<aside markdown="1">
 You don't _really_ need tmux-yank to get copy and paste working.
 You can just add custom key and mouse bindings to your `~/.tmux.conf` so that
 it pipes to and from an external program to work with the system clipboard and
@@ -138,7 +135,7 @@ The problem is that the needed external program varies depending on whether you'
 Windows (`xsel` or `xclip`), Wayland (`wl-copy`), macOS or WSL (`clip.exe`),
 etc. The value of tmux-yank is that it automatically uses the right copy
 program for the current system.
-</div>
+</aside>
 
 You will need:
 
@@ -184,7 +181,7 @@ You should now have a couple of things working:
   click <kbd><kbd>Ctrl</kbd> + <kbd>c</kbd></kbd> or <kbd>y</kbd> it'll copy it
   into the system clipboard.
 
-    <div class="note" markdown="1">
+    <aside markdown="1">
     <kbd>y</kbd> is the key that tmux-yank uses for copying to the clipboard,
     the same as vim's "yank" key (which ironically doesn't use the system
     clipboard by default in vim).
@@ -193,7 +190,7 @@ You should now have a couple of things working:
     do the same thing as <kbd>y</kbd>, but they only work in X Windows. If you're
     using a different window system you'll have to replace the `xsel` commands
     with something else.
-</div>
+    </aside>
 
 ## Don't clear the selection on raise
 
@@ -247,10 +244,10 @@ bind -T copy-mode-vi TripleClick1Pane select-pane \; send -X select-line \; send
 bind -n TripleClick1Pane select-pane \; copy-mode -M \; send -X select-line \; send -X copy-pipe-no-clear "xsel -i"
 ```
 
-<div class="note" markdown="1">
+<aside markdown="1">
 This is for X Windows only. If you're using a different window system you have
 to replace the `xsel` commands with something else.
-</div>
+</aside>
 
 Then reload your `~/.tmux.conf` file:
 
@@ -276,10 +273,10 @@ To fix it add this to your `~/.tmux.conf`:
 bind -n MouseDown2Pane run "tmux set-buffer -b primary_selection \"$(xsel -o)\"; tmux paste-buffer -b primary_selection; tmux delete-buffer -b primary_selection"
 ```
 
-<div class="note" markdown="1">
+<aside markdown="1">
 This is for X Windows only. If you're using a different window system you have
 to replace the `xsel` command with something else.
-</div>
+</aside>
 
 Reload your `~/.tmux.conf` file:
 
@@ -314,7 +311,7 @@ keyboard. You don't really need copy mode if you've followed the instructions
 above to fix mouse-based copy and paste but it's very powerful so it might be
 worth learning.
 
-<div class="note" markdown="1">
+<aside markdown="1">
 Note: tmux's copy mode uses emacs-style keybindings by default unless your
 `EDITOR` or `VISUAL` envvar contains the string `"vi"`, then it uses vi-style
 bindings.  You can force it to use vi-style bindings by adding this line to
@@ -323,7 +320,7 @@ your `~/.tmux.conf`:
     set -g mode-keys vi
 
 I'm using the vi-style bindings in this guide.
-</div>
+</aside>
 
 In tmux <kbd><kbd>Ctrl</kbd> + <kbd>b</kbd> <kbd>[</kbd></kbd> enters **copy
 mode**, where you can move the cursor around and select text. If you have
@@ -347,7 +344,7 @@ Back in default mode:
   choose-buffer` on the command line) shows you all the paste buffers and lets
   you choose one to paste from
 
-<div class="note" markdown="1">
+<aside markdown="1">
 
 #### Copy mode keyboard shortcuts
 
@@ -395,7 +392,7 @@ Some other useful copy-mode keyboard shortcuts (there are more, see [`man tmux`]
         bind -T copy-mode-vi Y send-keys -X copy-line
 
   This works with a vi-like prefix, so <kbd><kbd>3</kbd> <kbd>Y</kbd></kbd> will copy three lines (the current line and the two below it).
-</div>
+</aside>
 
 ## tmux's paste buffers
 

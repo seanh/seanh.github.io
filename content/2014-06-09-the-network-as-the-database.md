@@ -69,7 +69,7 @@ find problems with the metadata fields on any of the columns, but the interface
 only shows the fields for the selected column. How to present the errors to the user?
 
 <figure>
-    <img src="{static}/images/datapackager-validation-error.png" alt="Screenshot showing a validation error" title="Screenshot showing a validation error">
+    <img style="border: none;" src="{static}/images/datapackager-validation-error.png" alt="Screenshot showing a validation error" title="Screenshot showing a validation error">
     <figcaption>A validation error</figcaption>
 </figure>
 
