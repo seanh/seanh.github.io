@@ -56,7 +56,7 @@ username and password for the site.
 The way it works is:
 
 <figure>
-    <img src="{static}/images/waad_signin.png" alt="Logging into CKAN using Persona" title="Logging into CKAN using Persona">
+    <img style="border: none;" src="{static}/images/waad_signin.png" alt="Logging into CKAN using Persona" title="Logging into CKAN using Persona">
     <figcaption>Logging into CKAN using Persona</figcaption>
 </figure>
 
@@ -95,7 +95,7 @@ for this explanation.
 This is how the "login experience" looks, from the user's point of view:
 
 <figure>
-    <img src="{static}/images/oauth2waad.gif" alt="Logging into CKAN with Windows Azure Active Directory" title="Logging into CKAN with Windows Azure Active Directory">
+    <img style="border: none;" src="{static}/images/oauth2waad.gif" alt="Logging into CKAN with Windows Azure Active Directory" title="Logging into CKAN with Windows Azure Active Directory">
     <figcaption>Logging into CKAN with Windows Azure Active Directory</figcaption>
 </figure>
 

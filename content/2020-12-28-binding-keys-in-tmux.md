@@ -1,13 +1,13 @@
 Title: Binding Keys in tmux
 Tags: tmux
 
-<div class="note" markdown="1">
+<aside markdown="1">
 To list all current key bindings, including any custom bindings you've added and bindings added by plugins:
 
 * <kbd><kbd><kbd>Ctrl</kbd> + <kbd>b</kbd></kbd> <kbd>?</kbd></kbd>
 * `tmux list-keys` or `tmux lsk` in a shell inside tmux
 * `list-keys` or `lsk` at tmux's command prompt (<kbd><kbd><kbd>Ctrl</kbd> + <kbd>b</kbd></kbd> <kbd>:</kbd></kbd>)
-</div>
+</aside>
 
 The `bind-key` and `unbind-key` commands (aliases `bind` and `unbind`) change key bindings in tmux. Like all tmux commands a `bind` or `unbind` command can be
 entered in three different ways:
@@ -30,7 +30,7 @@ The `C-` stands for <kbd>Control</kbd>. There's also `S-` for <kbd>Shift</kbd> a
 `bind` commands, including: `Up`, `Down`, `Left`, `Right`, `BSpace`, `Delete`, `End`, `Enter`, `Escape`, `F1` ... `F12`, `Home`, `Insert`, `PageDown` or `PgDn`,
 `PageUp` or `PgUp`, `Space` and `Tab`.
 
-<div class="note" markdown="1">
+<aside markdown="1">
 
 `S-` doesn't work with keys that send a different character when <kbd>Shift</kbd>'ed.
 `bind S-n ...`, `bind S-1 ...`, etc don't work.
@@ -45,7 +45,7 @@ or just <kbd><kbd>Ctrl</kbd> + <kbd>n</kbd></kbd>.
 There are various other modifier key limitations as well, see [Modifier Keys](https://github.com/tmux/tmux/wiki/Modifier-Keys)
 on the tmux wiki.
 
-</div>
+</aside>
 
 Every keybinding lives in a **key table**. There are three built-in key tables:
 

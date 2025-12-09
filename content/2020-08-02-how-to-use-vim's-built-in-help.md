@@ -4,7 +4,7 @@ Tags: vim
 Vim has a comprehensive built-in manual. Unfortunately you need some help to know how to use the help.
 This post is a quick reference and tutorial for Vim's <kbd>:help</kbd> files.
 
-<div class="note" markdown="1">
+<aside markdown="1">
 #### See also
 
 * <kbd>:help</kbd> opens Vim's "main help file" ([`help.txt`](https://vimhelp.org/)).
@@ -25,7 +25,7 @@ This post is a quick reference and tutorial for Vim's <kbd>:help</kbd> files.
 
     vimhelp.org also has the [VIM FAQ](https://vimhelp.org/vim_faq.txt.html)
     (which I don't think is available from inside Vim).
-</div>
+</aside>
 
 ## Opening the help window
 

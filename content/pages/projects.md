@@ -1,4 +1,5 @@
 Title: Projects
+Modified: 2025-12
 
 Here's a list of some of my projects.
 You can find more on [my GitHub account](https://github.com/seanh?tab=repositories).
@@ -47,7 +48,7 @@ JTRS made a good [YouTube video](https://www.youtube.com/watch?v=B-aAfLJop0s) th
 
 A story authoring application for children, developed for <a href="http://hdl.handle.net/1842/5294">my PhD thesis</a>.
 
-<img src="{static}/images/storymaps.png" alt="Screenshot of Story Maps">
+<img style="border: none;" src="{static}/images/storymaps.png" alt="Screenshot of Story Maps">
 
 #### CKAN (2011-2015)
 
@@ -91,13 +92,13 @@ course:
 Computer game characters that follow, chase, flee, and avoid obstacles and collisions.
 Also <a href="http://github.com/seanh/PandaZUI">PandaZUI</a>, a zoomable user-interface framework.
 
-<iframe src="https://player.vimeo.com/video/27771569?h=3a6c56e7df&title=0&byline=0&portrait=0" width="640" height="486" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+<iframe style="border: none;" src="https://player.vimeo.com/video/27771569?h=3a6c56e7df&title=0&byline=0&portrait=0" width="640" height="486" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
 
 #### Various command line tools and dotfiles I've developed over the years
 
 * [My ripgrep config](https://github.com/seanh/ripgrep) (2019)
 * [My Openbox config](https://github.com/seanh/openbox) (2018)
-* <a href="https://github.com/seanh/dwm">My DWM config</a> <span class="subtitle">(2015)</span>
+* <a href="https://github.com/seanh/dwm">My DWM config</a> (2015)
 * <a href="https://github.com/ckan/losser">Losser</a> (2014), a little JSON to CSV converter
 * <a href="https://www.seanh.cc/terminal_velocity">Terminal Velocity</a> (2012), a fast note-taking app for the UNIX terminal
 * <a href="https://github.com/seanh/snapshotter">Snapshotter</a> (2011), very easy incremental snapshot backups

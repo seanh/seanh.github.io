@@ -47,9 +47,9 @@ bind -T copy-mode-vi C-M-g send -X search-reverse
 bind -T copy-mode-vi C-h send -X search-reverse
 ```
 
-<div class="note" markdown="1">
+<aside markdown="1">
 The snippet is for tmux's vi-style copy mode bindings. If you're using emacs-style replace `copy-mode-vi` with just `copy-mode`.
-</div>
+</aside>
 
 These key bindings do _incremental_ search: it highlights all matches and jumps to the first match as you type the search query, instead of waiting for you to
 hit <kbd>Enter</kbd>. If you're using emacs-style bindings then the default <kbd><kbd>Ctrl</kbd> + <kbd>r</kbd></kbd> and <kbd><kbd>Ctrl</kbd> + <kbd>s</kbd></kbd>

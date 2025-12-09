@@ -1,22 +1,20 @@
 Title: Helix, language servers, and Python virtual environments
 Tags: Helix, Python
-
-<p class="lead" markdown="1">
-How to get the text editor [Helix](https://helix-editor.com/) working with Python
-language servers and virtual environments.
-Plus a guide to Helix's LSP-based features.
-</p>
+Summary:
+    How to get the text editor [Helix](https://helix-editor.com/) working with Python
+    language servers and virtual environments.
+    Plus a guide to Helix's LSP-based features.
 
 Helix is a neat little vim-like, modal, terminal text editor (written in Rust!)
 with a low-config, good-defaults approach and modern features.
 
-<figure markdown="1">
-![Helix]({static}/images/helix.png "Helix")
-<figcaption markdown="1">
+<figure>
+<img style="border: none;" src="{static}/images/helix.png" alt="Helix">
+<figcaption>
 Helix with no file open (showing an empty scratch buffer). The colour
-theme I'm using in these screenshots is `modus_operandi_deuteranopia`,
+theme I'm using in these screenshots is <code>modus_operandi_deuteranopia</code>,
 one of Helix's builtin themes. It's a port of the
-[modus themes for Emacs](https://protesilaos.com/emacs/modus-themes).
+<a href="https://protesilaos.com/emacs/modus-themes">modus themes for Emacs</a>.
 </figcaption>
 </figure>
 
@@ -312,9 +310,9 @@ The one that everyone wants and the only language server feature that really mat
 "intelligent" autocomplete suggestions that know about your programming language,
 your code, and your dependencies. They look like this in Helix:
 
-<figure markdown="1">
-![Autocomplete suggestions in Helix]({static}/images/helix-autocomplete.png "Autocomplete suggestions in Helix")
-<figcaption markdown="1">Helix showing autocomplete suggestions.</figcaption>
+<figure>
+<img style="border: none;" src="{static}/images/helix-autocomplete.png" alt="Autocomplete suggestions in Helix">
+<figcaption>Helix showing autocomplete suggestions.</figcaption>
 </figure>
 
 Autocomplete suggestions usually appear automatically as you type,
@@ -339,12 +337,12 @@ In our case autocomplete suggestions are provided by both ty and Jedi (Ruff does
 This means that you'll get two autocomplete suggestions for the same thing,
 one from ty and one from Jedi:
 
-<figure markdown="1">
-![Duplicate autocomplete suggestions in Helix]({static}/images/helix-duplicate-completions.png "Duplicate autocomplete suggestions in Helix")
-<figcaption markdown="1">
-Helix showing two duplicate autocomplete suggestions for `log.warning`:
+<figure>
+<img style="border: none;" src="{static}/images/helix-duplicate-completions.png" alt="Duplicate autocomplete suggestions in Helix">
+<figcaption>
+Helix showing two duplicate autocomplete suggestions for <code>log.warning</code>:
 one from ty and one from Jedi.
-Jedi thinks `log.warning` is a function,
+Jedi thinks <code>log.warning</code> is a function,
 ty calls it a method.
 They each render the signature and docstring differently too.
 </figcaption>
@@ -400,9 +398,9 @@ an indication of which positional argument you're currently typing,
 the return type,
 and the beginning of the docstring:
 
-<figure markdown="1">
-![Helix's signature help popup]({static}/images/helix-signature-help.png "Helix's signature help popup")
-<figcaption markdown="1">Helix showing signature help.</figcaption>
+<figure>
+<img style="border: none;" src="{static}/images/helix-signature-help.png" alt="Helix's signature help popup">
+<figcaption>Helix showing signature help.</figcaption>
 </figure>
 
 The signature help popup will normally appear on its own when needed.
@@ -441,9 +439,9 @@ servers can provide diagnostics about your code (hints, warnings, errors, and
 other info from tools like linters and type checkers) which Helix can display
 in-editor:
 
-<figure markdown="1">
-![Helix showing a diagnostic]({static}/images/helix-diagnostics.png "Helix showing a diagnostic")
-<figcaption markdown="1">Helix showing some diagnostics.</figcaption>
+<figure>
+<img style="border: none;" src="{static}/images/helix-diagnostics.png" alt="Helix showing a diagnostic">
+<figcaption>Helix showing some diagnostics.</figcaption>
 </figure>
 
 The presence of diagnostics is indicated by coloured circles next to the line numbers in the left-hand-side gutter
@@ -465,9 +463,9 @@ Some keyboard shortcuts for working with diagnostics:
 There's optional support for displaying diagnostics inline and at the ends of lines,
 it looks like this:
 
-<figure markdown="1">
-![Helix showing inline and end-of-line diagnostics]({static}/images/helix-inline-diagnostics.png "Helix showing inline and end-of-line diagnostics")
-<figcaption markdown="1">Helix showing inline and end-of-line diagnostics.</figcaption>
+<figure>
+<img style="border: none;" src="{static}/images/helix-inline-diagnostics.png" alt="Helix showing inline and end-of-line diagnostics">
+<figcaption>Helix showing inline and end-of-line diagnostics.</figcaption>
 </figure>
 
 Inline and end-of-line diagnostics are disabled by default.
@@ -501,9 +499,9 @@ There's also a diagnostics picker that gives a birds-eye overview of all diagnos
 <kbd>Space</kbd> <kbd>d</kbd> opens a picker for diagnostics from the current file only,
 <kbd>Space</kbd> <kbd>D</kbd> opens one for diagnostics from all files in the workspace:
 
-<figure markdown="1">
-![Helix's diagnostics picker]({static}/images/helix-diagnostics-picker.png "Helix's diagnostics picker")
-<figcaption markdown="1">Helix's diagnostics picker.</figcaption>
+<figure>
+<img style="border: none;" src="{static}/images/helix-diagnostics-picker.png" alt="Helix's diagnostics picker">
+<figcaption>Helix's diagnostics picker.</figcaption>
 </figure>
 
 <details markdown="1">
@@ -551,9 +549,9 @@ Inlay hints annotate the source code with things like the types of variables
 and the names of arguments being passed positionally.
 It looks like this (the inlay hints are the words in _italics_, they're not part of the actual file!):
 
-<figure markdown="1">
-![Helix's inlay hints]({static}/images/helix-inlay-hints.png "Helix's inlay hints")
-<figcaption markdown="1">Helix showing inlay hints.</figcaption>
+<figure>
+<img style="border: none;" src="{static}/images/helix-inlay-hints.png" alt="Helix's inlay hints">
+<figcaption>Helix showing inlay hints.</figcaption>
 </figure>
 
 Inlay hints are disabled by default.
@@ -627,9 +625,9 @@ Language servers provide various commands for jumping to things:
 * <kbd>gr</kbd> opens a picker with a list of all references to the
   symbol under the cursor in all files in the workspace:
 
-    <figure markdown="1">
-    ![Helix listing the references to a symbol]({static}/images/helix-list-references.png "Helix listing the references to a symbol")
-    <figcaption markdown="1">Helix's picker showing all references to `create_app()`.</figcaption>
+    <figure>
+    <img style="border: none;" src="{static}/images/helix-list-references.png" alt="Helix listing the references to a symbol">
+    <figcaption>Helix's picker showing all references to <code>create_app()</code>.</figcaption>
     </figure>
 
 * <kbd>Space</kbd> <kbd>s</kbd> opens a similar picker but for _all_ symbols in
@@ -686,9 +684,9 @@ Finally,
 <kbd>Space</kbd> <kbd>k</kbd> shows the docs for the symbol under the cursor
 in a popup window:
 
-<figure markdown="1">
-![Helix showing a function's docstring]({static}/images/helix-docs.png "Helix showing a function's docstring")
-<figcaption markdown="1">Helix showing a function's docstring in a popup window.</figcaption>
+<figure>
+<img style="border: none;" src="{static}/images/helix-docs.png" alt="Helix showing a function's docstring">
+<figcaption>Helix showing a function's docstring in a popup window.</figcaption>
 </figure>
 
 <kbd>Ctrl</kbd> + <kbd>d</kbd> and <kbd>Ctrl</kbd> + <kbd>u</kbd> scroll

@@ -5,10 +5,10 @@ maildirs. This post will show you how to use isync to make a local backup of you
 
 isync is quick to install and configure and works great.
 
-<div class="note" markdown="1">
+<aside markdown="1">
 The project is called isync but the actual command line application is `mbsync`
 because massive changes were once made to the user interface.
-</div>
+</aside>
 
 isync can do two-way synchronization of your IMAP and local maildirs.
 It even allows fine-grained control of which types of changes get synced
@@ -86,7 +86,7 @@ Patterns *
 SyncState *
 ```
 
-<div class="note" markdown="1">
+<aside markdown="1">
 The `Pipelinedepth 1` slows isync down by preventing it from having multiple
 IMAP commands in flight at once.  This is necessary to prevent isync from
 hitting Gmail's bandwidth quotas and triggering this error message:
@@ -100,13 +100,13 @@ remove the `Pipelinedepth 1` after that and it has been working fine. Removing
 though: without knowing how isync works internally I'm guessing this might be
 because I have a lot of maildirs but not much new mail to download in any one
 maildir.
-</div>
+</aside>
 
-<div class="note" markdown="1">
+<aside markdown="1">
 The `Timeout 60` increases isync's IMAP connect and data timeouts from the
 default of 20s. I found that this got rid of some timeout errors I was seeing
 from Gmail.
-</div>
+</aside>
 
 ### Create Fastmail and Gmail app passwords
 
