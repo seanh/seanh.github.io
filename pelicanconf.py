@@ -12,7 +12,6 @@ STATIC_PATHS = ["images", "videos", "dissertation.pdf", "ThesisChapter5.pdf", "o
 THEME = "../sidecar"
 TYPOGRIFY = True
 TYPOGRIFY_DASHES = "oldschool"
-SIDECAR_PYGMENTS_THEME = "monokai"
 
 PLUGINS = ["pelican_alias"]
 
