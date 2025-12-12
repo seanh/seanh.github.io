@@ -22,5 +22,5 @@ jobs:
       python: "3.13"
       requirements: "-r requirements/dev.txt"
       theme: "https://github.com/seanh/sidecar.git"
-      theme-checkout: "1.0.0-rc.9"
+      theme-checkout: "1.0.0-rc.10"
       deploy: ${{ (github.event_name == 'workflow_dispatch' && inputs.deploy == true) || (github.event_name == 'push' && github.ref_type == 'branch' && github.ref_name == github.event.repository.default_branch) }}
