@@ -18,6 +18,12 @@ on:
         description: "The theme repo branch, tag, or SHA to checkout."
         required: true
         type: string
+      python_version:
+        required: true
+        type: string
+      requirements_file:
+        required: true
+        type: string
 jobs:
   pages:
     runs-on: ubuntu-latest
@@ -36,6 +42,8 @@ jobs:
       theme_ref: ${{ inputs.theme_ref }}
       base_url: ${{ needs.pages.outputs.base_url }}
       artifact_name: "github-pages"
+      python_version: ${{ inputs.python_version }}
+      requirements_file: ${{ inputs.requirements_file }}
     secrets:
       site_repo_token: ${{ secrets.SEANH_CC_TOKEN }}
   deploy:
