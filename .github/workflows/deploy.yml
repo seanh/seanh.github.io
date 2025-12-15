@@ -27,7 +27,7 @@ jobs:
     outputs:
       base_url: ${{ steps.pages.outputs.base_url }}
   build:
-    needs: configure-pages
+    needs: pages
     uses: ./.github/workflows/build.yml
     with:
       site_repo: ${{ inputs.site_repo }}
