@@ -28,7 +28,7 @@ jobs:
           repository: ${{ inputs.repo }}
           run-id: ${{ inputs.run_id }}
           github-token: ${{ secrets.SEANH_CC_TOKEN }}
-          path: _site/
+      - run: mkdir _site && tar -xf artifact.tar -C _site
       - run: ls -R
       - uses: actions/upload-pages-artifact@v4
       - uses: actions/deploy-pages@v4
