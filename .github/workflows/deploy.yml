@@ -1,63 +1,36 @@
-name: Deploy
 on:
-  workflow_dispatch:
+  workflow_call:
     inputs:
-      site_repo:
-        description: "The site repo to checkout."
-        required: true
+      repo:
         type: string
-      site_ref:
-        description: "The site repo branch, tag, or SHA to checkout."
         required: true
+      run_id:
         type: string
-      theme_repo:
-        description: "The theme repo to checkout."
         required: true
-        type: string
-      theme_ref:
-        description: "The theme repo branch, tag, or SHA to checkout."
-        required: true
-        type: string
-      python_version:
-        required: true
-        type: string
-      requirements_file:
-        required: true
-        type: string
-jobs:
-  pages:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/configure-pages@v5
-        id: pages
-    outputs:
-      base_url: ${{ steps.pages.outputs.base_url }}
-  build:
-    needs: pages
-    uses: ./.github/workflows/build.yml
-    with:
-      site_repo: ${{ inputs.site_repo }}
-      site_ref: ${{ inputs.site_ref }}
-      theme_repo: ${{ inputs.theme_repo }}
-      theme_ref: ${{ inputs.theme_ref }}
-      base_url: ${{ needs.pages.outputs.base_url }}
-      artifact_name: "github-pages"
-      python_version: ${{ inputs.python_version }}
-      requirements_file: ${{ inputs.requirements_file }}
     secrets:
-      site_repo_token: ${{ secrets.SEANH_CC_TOKEN }}
+      token:
+        required: true
+jobs:
   deploy:
-    needs: build
     runs-on: ubuntu-latest
     concurrency:
       group: "pages"
       cancel-in-progress: true
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: ${{ steps.deploy.outputs.page_url }}
     permissions:
       pages: write
       id-token: write
     steps:
+      - uses: actions/download-artifact@v8
+        with:
+          name: github-pages
+          repository: ${{ inputs.repo }}
+          run-id: ${{ inputs.run_id }}
+          github-token: ${{ secrets.token }}
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: output/
       - uses: actions/deploy-pages@v4
-        id: deployment
