@@ -8,9 +8,6 @@ on:
       run_id:
         type: string
         required: true
-    secrets:
-      token:
-        required: true
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -29,7 +26,7 @@ jobs:
           name: github-pages
           repository: ${{ inputs.repo }}
           run-id: ${{ inputs.run_id }}
-          github-token: ${{ secrets.token }}
+          github-token: ${{ secrets.SEANH_CC_TOKEN }}
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v4
         with:
