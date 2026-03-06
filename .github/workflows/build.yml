@@ -30,7 +30,6 @@ on:
       site_repo_token:
         description: "The GitHub token to use when checking out site_repo"
         required: true
-        type: string
 jobs:
   build:
     runs-on: ubuntu-latest
