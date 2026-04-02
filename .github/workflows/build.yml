@@ -71,7 +71,7 @@ jobs:
             .
           echo "::endgroup::"
         if: ${{ inputs.artifact_name }}
-      - uses: actions/upload-artifact@v6
+      - uses: actions/upload-artifact@v7
         with:
           name: ${{ inputs.artifact_name }}
           path: ${{ runner.temp }}/artifact.tar
